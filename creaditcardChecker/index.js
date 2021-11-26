@@ -87,9 +87,9 @@ const idInvalidCardCompanies = (arr) => {
   };
 }
 
-idInvalidCardCompanies(invalidCards)
+idInvalidCardCompanies(invalidCards);
 invalidCardCompanies = [...new Set(invalidCardCompanies)];
-console.log(invalidCardCompanies)
+console.log(invalidCardCompanies);
 
 
 
