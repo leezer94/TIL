@@ -18,7 +18,6 @@ const notes = [];
 keys.forEach(function (key) {
   notes.push(document.getElementById(key));
 });
-console.log(notes);
 // Write named functions that change the color of the keys below
 const keyPlay = function (event) {
   event.target.style.backgroundColor = "gray";
@@ -50,11 +49,44 @@ nextThree.hidden = true;
 startOver.hidden = true;
 
 // Write anonymous event handler property and function for the first progress button
-
+nextOne.addEventListener("click", () => {
+  nextTwo.hidden = false;
+  nextOne.hidden = true;
+  document.querySelector("#letter-note-five").textContent = "D";
+  document.querySelector("#letter-note-six").textContent = "C";
+});
 // Write anonymous event handler property and function for the second progress button
+nextTwo.addEventListener("click", () => {
+  nextThree.hidden = false;
+  nextTwo.hidden = true;
+  document.querySelector("#letter-note-five").textContent = "DEAR";
+  document.querySelector("#letter-note-six").textContent = "FRI-";
 
+  document.querySelector("#letter-note-three").textContent = "G";
+  document.querySelector("#letter-note-four").textContent = "E";
+  document.querySelector("#letter-note-five").textContent = "C";
+  document.querySelector("#letter-note-six").textContent = "B";
+
+  lastLyric.style.display = "inline-block";
+});
 // Write anonymous event handler property and function for the third progress button
+nextThree.addEventListener("click", () => {
+  startOver.hidden = false;
+  nextThree.hidden = true;
+  document.querySelector("#word-one").textContent = "HAP-";
+  document.querySelector("#word-two").textContent = "PY";
+  document.querySelector("#word-three").textContent = "BIRTH";
+  document.querySelector("#word-four").textContent = "DAY";
+  document.querySelector("#word-five").textContent = "TO";
+  document.querySelector("#word-six").textContent = "YOU!";
 
+  document.querySelector("#letter-note-one").textContent = "E";
+  document.querySelector("#letter-note-two").textContent = "F";
+  document.querySelector("#letter-note-three").textContent = "E";
+  document.querySelector("#letter-note-four").textContent = "C";
+  document.querySelector("#letter-note-five").textContent = "D";
+  document.querySelector("#letter-note-six").textContent = "C";
+});
 // This is the event handler property and function for the startOver button
 startOver.onclick = function () {
   nextOne.hidden = false;
