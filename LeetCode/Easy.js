@@ -87,3 +87,34 @@
   let strs = ['flower', 'flow', 'flight'];
   // console.log(longestCommonPrefix(strs));
 }
+{
+  const isValid = function (s) {
+    // Create a Stack
+    let stack = [];
+    // Loop through each element in the String
+    for (let i = 0; i < s.length; i++) {
+      let char = stack[stack.length - 1];
+
+      // If you encounter a starting bracket, push it onto the stack
+      if (s[i] === '(' || s[i] === '{' || s[i] === '[') {
+        stack.push(s[i]);
+        console.log(s[i]);
+        console.log(char);
+        // Pop the opening bracket off the stack,
+        // If there is a corresponding closing bracket in the String
+      } else if (
+        (char === '(' && s[i] === ')') ||
+        (char === '{' && s[i] === '}') ||
+        (char === '[' && s[i] === ']')
+      ) {
+        stack.pop();
+      } else return false;
+    }
+    console.log(stack);
+    // Check empty stack
+    return stack.length ? false : true;
+  };
+
+  let s = '[{()}]';
+  console.log(isValid(s));
+}
