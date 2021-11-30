@@ -8,14 +8,14 @@
       }
       return reversed;
     }
-    l1 = reverse(l1).join("");
-    l2 = reverse(l2).join("");
+    l1 = reverse(l1).join('');
+    l2 = reverse(l2).join('');
 
     result += Number(l1) + Number(l2);
 
     return result
       .toString()
-      .split("")
+      .split('')
       .map((x) => Number(x))
       .reverse();
   };
@@ -27,7 +27,7 @@
 
 {
   const isPalindrome = function (x) {
-    let reverse = x.toString().split("").reverse().join("");
+    let reverse = x.toString().split('').reverse().join('');
 
     if (x < 0 || x !== Number(reverse)) {
       return false;
@@ -63,6 +63,27 @@
     }
     return result;
   };
-  let s = "III";
+  let s = 'III';
   // console.log(romanToInt(s));
+}
+{
+  const longestCommonPrefix = function (strs) {
+    // Return early on empty input
+    if (!strs.length) return '';
+
+    // Loop through the letters fo the first string
+    for (let i = 0; i <= strs[0].length; i++) {
+      // Loop through the other strings
+      for (let j = 0; j < strs.length; j++) {
+        // Check if this character is also present in the same position of each string
+        if (strs[0][i] !== strs[j][i]) {
+          return strs[0].slice(0, i);
+        }
+      }
+    }
+    return strs[0];
+  };
+
+  let strs = ['flower', 'flow', 'flight'];
+  // console.log(longestCommonPrefix(strs));
 }
