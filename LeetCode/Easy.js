@@ -137,5 +137,5 @@
   };
 
   let nums = [1, 1, 2];
-  console.log(removeDuplicates(nums));
+  // console.log(removeDuplicates(nums));
 }
