@@ -154,3 +154,19 @@
   let needle = '';
   // console.log(strStr(haystack, needle));
 }
+{
+  const searchInsert = function (nums, target) {
+    if (nums.includes(target)) {
+      return nums.indexOf(target);
+    } else {
+      nums.push(target);
+      nums.sort((a, b) => a - b);
+      return nums.indexOf(target);
+    }
+  };
+
+  let nums = [1, 3, 5, 6];
+  let target = 0;
+
+  // console.log(searchInsert(nums, target));
+}
