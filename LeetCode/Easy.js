@@ -139,3 +139,18 @@
   let nums = [1, 1, 2];
   // console.log(removeDuplicates(nums));
 }
+{
+  const strStr = function (haystack, needle) {
+    if (haystack.includes(needle)) {
+      return haystack.indexOf(needle);
+    } else if (needle.length === 0) {
+      return 0;
+    } else {
+      return -1;
+    }
+  };
+
+  let haystack = '';
+  let needle = '';
+  // console.log(strStr(haystack, needle));
+}
