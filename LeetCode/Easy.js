@@ -170,3 +170,22 @@
 
   // console.log(searchInsert(nums, target));
 }
+{
+  var maxSubArray = function (nums) {
+    if (nums.length === 1) return nums;
+    nums = [...new Set(nums)];
+    console.log(nums);
+  };
+  let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+  // console.log(maxSubArray(nums));
+}
+{
+  const lengthOfLastWord = function (s) {
+    const newArr = s.trim().split(' ');
+    const len = newArr.length - 1;
+    return newArr[len].length;
+  };
+
+  let s = '   fly me   to   the moon  ';
+  console.log(lengthOfLastWord(s));
+}
