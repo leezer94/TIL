@@ -208,7 +208,7 @@
   // console.log(plusOne(digits));
 }
 {
-  var addBinary = function (a, b) {
+  const addBinary = function (a, b) {
     // this print bigger than the primitive type numer 2^53-1
     // 0b is the Python prefix for the representation of binary numbers.
     let sum = BigInt(`0b${a}`) + BigInt(`0b${b}`);
@@ -219,4 +219,37 @@
   let b =
     '110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011';
   // console.log(addBinary(a, b));
+}
+{
+  const mySqrt = function (x) {
+    x = Math.sqrt(x);
+    return Math.floor(x);
+  };
+  let x = 8;
+  // console.log(mySqrt(x));
+}
+{
+  const climbStairs = function (n) {
+    // related algorithm = fibonacci sequence
+    // (for examply 3 stpes yields 3 combinations to mae it to the third step)
+    // this is simply the sim of te previous two step combinations
+    // if( n === 2 )return 2,  if (n === 3) return 3, if( n === 4 ) return 5;
+    // Base Case
+    // if (n <= 1) return 1;
+    // otherwise this is basically fibonacci sequence f(n) = f(n-1) + f(n-2)
+    // return climbStairs(n - 1) + climbStairs(n - 2);
+    // time out
+
+    const cache = {
+      0: 1,
+      1: 1,
+    };
+    if (n <= 1) return 1;
+    for (let i = 2; i <= n; i++) {
+      cache[i] = cache[i - 1] + cache[i - 2];
+    }
+    return cache[n];
+  };
+  let n = 45;
+  console.log(climbStairs(n));
 }
