@@ -251,5 +251,5 @@
     return cache[n];
   };
   let n = 45;
-  console.log(climbStairs(n));
+  // console.log(climbStairs(n));
 }
