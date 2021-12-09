@@ -253,3 +253,31 @@
   let n = 45;
   // console.log(climbStairs(n));
 }
+{
+  var isPalindrome = function (s) {
+    let newStr = s.toLowerCase().match(/[a-z0-9]/g);
+
+    if ([...new Set(newStr)].length === 1) {
+      return true;
+    }
+    if (newStr === null) {
+      return true;
+    }
+    const len = Math.floor(newStr.length / 2);
+    const front = newStr.slice(0, len).reverse().join('');
+    const end = newStr.slice(len, newStr.length).join('');
+    const frontString = newStr.slice(0, len).reverse().join('');
+    const endString = newStr.slice(len + 1, newStr.length).join('');
+
+    if (frontString === endString || front === end) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  let s = 'A man, a plan, a canal: Panama';
+  // let s = '        ';
+  // let s = 'abba';
+  // console.log(isPalindrome(s));
+}
