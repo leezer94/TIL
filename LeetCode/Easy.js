@@ -281,3 +281,24 @@
   // let s = 'abba';
   // console.log(isPalindrome(s));
 }
+{
+  const singleNumber = function (nums) {
+    // needs to be revised
+    // stands for hashTable
+    const ht = {}; //{1000:4 , 4: 2200}
+
+    for (const num of nums) {
+      // this single line code will create tali count?
+      ht[num] = ht[num] + 1 || 1;
+    }
+
+    for (const key in ht) {
+      if (ht[key] === 1) {
+        return key;
+      }
+    }
+  };
+
+  let nums = [4, 1, 2, 1, 2];
+  // console.log(singleNumber(nums));
+}
