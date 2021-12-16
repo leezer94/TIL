@@ -36,7 +36,7 @@
 
 #### MVC 패턴이란 ?
 
-`Model MVC` 는 `Model`, `View`, `Controller` 의 약자로, 그 구성요소를 3가지의 역할로 구분한 디자인 패턴
+`MVC` 는 `Model`, `View`, `Controller` 의 약자로, 그 구성요소를 3가지의 역할로 구분한 디자인 패턴
 ( 사용자가 `컨트롤러`를 조작하면 컨트롤러는 `모델`을 통해 그 데이터를 가져오고 그 정보를 바탕으로 시각적인 표현을 담당하는 `뷰`를 제어 사용자에게 보여준다.)
 
 #### Model
@@ -101,3 +101,5 @@
 ## reference
 
 https://velog.io/@jun0911-cmyk/MVC%ED%8C%A8%ED%84%B4%EC%9D%98-%EC%A0%95%EB%A6%AC
+
+https://youtu.be/ogaXW6KPc8I
