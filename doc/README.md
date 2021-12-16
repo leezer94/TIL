@@ -75,6 +75,29 @@
 
 이로 인한 `유지보수`, `확장성`, `유연성` 이 증가
 
+### MVC 디자인 패턴의 사용
+
+1. `Model` 은 `Controller` 와 `View` 에 의존하지 않아야 한다.
+
+   - `Model`의 내부에 `Controller` 와 `View` 에 관련 코드가 존재하면 안됨
+
+2. View 는 `Model` 에만 의존해야 하고, `Controller` 에는 의존하면 안된다.
+
+   - `View`의 내부에 `Model`관련 코드만 있을 수 있고, `Controller`의 코드는 있으면 안된다.
+
+3. `View` 가 `Model`로 부터 데이터를 받을 때 에는 사용자마다 다르게 보여주어야 하는 데이터에 대해서만 받을 수 있다.
+
+<figure>
+    <img src="images/Screen Shot 2021-12-17 at 1.00.02 AM.png">
+    <img src="images/Screen Shot 2021-12-17 at 12.59.52 AM.png">
+</figure>
+
+4. `Controller` 는 `Model` 과 `View` 에 의존해도 된다.
+
+   - `Controller`의 내부에는 `Model`, `View` 의 코드가 있을 수 있다.
+
+5. `View` 가 `Model`로 부터 데이터를 받을때에는 반드시 `Controller` 에서 받아야 한다.
+
 ## reference
 
 https://velog.io/@jun0911-cmyk/MVC%ED%8C%A8%ED%84%B4%EC%9D%98-%EC%A0%95%EB%A6%AC

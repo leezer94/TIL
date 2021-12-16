@@ -302,3 +302,25 @@
   let nums = [4, 1, 2, 1, 2];
   // console.log(singleNumber(nums));
 }
+{
+  // greedy algorithms
+
+  const getGreedy = (a, b) => {
+    let count = 0;
+    
+    if (a % b === 0) {
+      return a / b;
+    } else {
+
+      let n = a - 1;
+      n %= b;
+      count++;
+    }
+    return count;
+  };
+
+  let a = 21;
+  let b = 5;
+
+  console.log(getGreedy(a, b));
+}
