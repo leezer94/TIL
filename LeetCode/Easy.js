@@ -171,7 +171,7 @@
   // console.log(searchInsert(nums, target));
 }
 {
-  var maxSubArray = function (nums) {
+  const maxSubArray = function (nums) {
     if (nums.length === 1) return nums;
     nums = [...new Set(nums)];
     console.log(nums);
@@ -254,28 +254,45 @@
   // console.log(climbStairs(n));
 }
 {
-  var isPalindrome = function (s) {
-    let newStr = s.toLowerCase().match(/[a-z0-9]/g);
+  // const isPalindrome = function (s) {
+  //   let newStr = s.toLowerCase().match(/[a-z0-9]/g);
 
-    if ([...new Set(newStr)].length === 1) {
-      return true;
-    }
-    if (newStr === null) {
-      return true;
-    }
-    const len = Math.floor(newStr.length / 2);
-    const front = newStr.slice(0, len).reverse().join('');
-    const end = newStr.slice(len, newStr.length).join('');
-    const frontString = newStr.slice(0, len).reverse().join('');
-    const endString = newStr.slice(len + 1, newStr.length).join('');
+  //   if ([...new Set(newStr)].length === 1) {
+  //     return true;
+  //   }
+  //   if (newStr === null) {
+  //     return true;
+  //   }
+  //   const len = Math.floor(newStr.length / 2);
+  //   const front = newStr.slice(0, len).reverse().join('');
+  //   const end = newStr.slice(len, newStr.length).join('');
+  //   const frontString = newStr.slice(0, len).reverse().join('');
+  //   const endString = newStr.slice(len + 1, newStr.length).join('');
 
-    if (frontString === endString || front === end) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  //   if (frontString === endString || front === end) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
 
+  function isPalindrome(s) {
+    // Sanitize the input string
+    s = s.toLowerCase().replace(/[\W_]/g, '');
+
+    let left = 0;
+    let right = s.length - 1; // last chracter of input string
+
+    while (left < right) {
+      if (s[left] !== s[right]) {
+        return false;
+      }
+      left++;
+      right--;
+    }
+
+    return true;
+  }
   let s = 'A man, a plan, a canal: Panama';
   // let s = '        ';
   // let s = 'abba';
@@ -307,11 +324,10 @@
 
   const getGreedy = (a, b) => {
     let count = 0;
-    
+
     if (a % b === 0) {
       return a / b;
     } else {
-
       let n = a - 1;
       n %= b;
       count++;
