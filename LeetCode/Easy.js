@@ -287,6 +287,7 @@
       if (s[left] !== s[right]) {
         return false;
       }
+
       left++;
       right--;
     }
@@ -338,5 +339,5 @@
   let a = 21;
   let b = 5;
 
-  console.log(getGreedy(a, b));
+  // console.log(getGreedy(a, b));
 }
