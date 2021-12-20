@@ -56,3 +56,22 @@ Array Method : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 - array.push() method actually mutate original value
 - array.unshift() method can add multiple values to the front of arrays
 - array.concat() methid can pass in multiple values
+
+`Referecne Type`
+
+Value Type Variable
+
+- instead of storing all of those values in the variable itself, what JavaScript does instead is it stores reference
+
+`Primitive Type`
+
+- Primitive Type are stored as the actual value in a variable arrays are different
+
+`const And Arrays`
+
+- Value can change as long as the reference ramians the same
+- because Arrays are `reference type` `const` is use most of the time when we work with Arrays
+
+`Nested Array`
+
+-
