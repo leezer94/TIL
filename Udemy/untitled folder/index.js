@@ -171,6 +171,97 @@
     [null, 'X', 'O'],
     ['X', 'O', null],
   ];
+  console.clear();
+}
+{
+  // Objects
 
-  
+  const fitBitData = {
+    totalSteps: 308727,
+    totalMiles: 211.7,
+    avgCalorieBurn: 5755,
+    woroutsThisWeek: '5 of 7',
+    avgGoodSleep: '2:13',
+    45: 'forty five',
+  };
+
+  // accessing to object
+  console.log(fitBitData.totalSteps);
+  console.log(fitBitData.avgGoodSleep);
+  console.log(fitBitData['45']);
+  console.log(fitBitData[45]);
+
+  // array brackets
+
+  const numbers = {
+    100: 'one hundred',
+    16: 'sixteen',
+    '76 trombones': 'great song!',
+  };
+
+  console.log(numbers[100]);
+  console.log(numbers['100']);
+  console.log(numbers['76 trombones']);
+
+  // this looks for the value of 'mysteryColor' and plugs into palette
+  const palette = {
+    red: '#eb4d4b',
+    yellow: '#f9ca24',
+    blue: '#30336b',
+  };
+
+  let mysteryColor = 'yellow';
+
+  console.log(palette[mysteryColor]);
+
+  //Updating , Adding properites
+
+  const userReviews = {};
+
+  userReviews.queenBee49 = 4.5;
+  userReviews['mrSmith78'] = 3.5;
+  userReviews.keonhee = 28;
+
+  userReviews.queenBee49 += 5.5;
+  userReviews['mrSmith78']++;
+
+  console.log(userReviews);
+
+  // Arrays + Object
+
+  const student = {
+    firstName: 'keonhee',
+    lastName: 'Lee',
+    strengths: ['Music', 'Art'],
+    exams: {
+      midterm: 92,
+      final: 88,
+    },
+  };
+
+  const exams = student['exams'];
+  const average = (exams.midterm + exams.final) / 2;
+  console.log(average);
+
+  const shoppingCart = [
+    {
+      product: 'Jenga Classic',
+      price: 6.88,
+      quantity: 1,
+    },
+    {
+      product: 'Echo Dot',
+      price: 29.99,
+      quantity: 3,
+    },
+    {
+      product: 'Jenga Classic',
+      price: 39.99,
+      quantity: 2,
+    },
+  ];
+
+  for (const items of shoppingCart) {
+    console.log(items);
+  }
 }

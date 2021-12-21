@@ -72,6 +72,29 @@ Value Type Variable
 - Value can change as long as the reference ramians the same
 - because Arrays are `reference type` `const` is use most of the time when we work with Arrays
 
-`Nested Array`
+`Object`
 
--
+- Objects are collections of properties.
+- Properties are a Key - Value pair
+- Rather than accessing data using an index, we use custom keys.
+
+                  KEY   :   VALUE
+               Username : 'crazyCatLady'
+               upvotes  : 7
+                  text  : 'great post!'
+
+- All keys are converted to strings
+- Sometimes we have property names that may not be vaild JavaScript identifiers then we use Array Brackets `['example']`;
+
+          `const palette = {
+            red: '#eb4d4b',
+            yellow: '#f9ca24',
+            blue: '#30336b',
+            };
+
+            let mysteryColor = 'yellow';
+
+            console.log(palette[mysteryColor]);`
+
+- This looks for the value of mysteryColor and then plugs into palette
+- Try to use `Dot Notation` whenever possible but for the `dynamic value` we need to use array bracket
