@@ -28,7 +28,7 @@
   }
 
   let s = 'babad';
-  let s = 'cbbd';
+  // let s = 'cbbd';
 
   console.log(longestPalindrome(s));
 }

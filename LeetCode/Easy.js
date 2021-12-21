@@ -281,7 +281,7 @@
     s = s.toLowerCase().replace(/[\W_]/g, '');
 
     let left = 0;
-    let right = s.length - 1; // last chracter of input string
+    let right = s.length - 1;
 
     while (left < right) {
       if (s[left] !== s[right]) {
@@ -291,13 +291,12 @@
       left++;
       right--;
     }
-
     return true;
   }
   let s = 'A man, a plan, a canal: Panama';
   // let s = '        ';
   // let s = 'abba';
-  // console.log(isPalindrome(s));
+  console.log(isPalindrome(s));
 }
 {
   const singleNumber = function (nums) {
