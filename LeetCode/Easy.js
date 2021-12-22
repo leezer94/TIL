@@ -296,7 +296,7 @@
   let s = 'A man, a plan, a canal: Panama';
   // let s = '        ';
   // let s = 'abba';
-  console.log(isPalindrome(s));
+  // console.log(isPalindrome(s));
 }
 {
   const singleNumber = function (nums) {
@@ -339,4 +339,55 @@
   let b = 5;
 
   // console.log(getGreedy(a, b));
+}
+{
+  const convertToTitle = function (n) {
+    // no restrictions on input
+    let string = '';
+    let key = [
+      'Z',
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+      'F',
+      'G',
+      'H',
+      'I',
+      'J',
+      'K',
+      'L',
+      'M',
+      'N',
+      'O',
+      'P',
+      'Q',
+      'R',
+      'S',
+      'T',
+      'U',
+      'V',
+      'W',
+      'X',
+      'Y',
+    ];
+    // using modulo
+
+    if (n <= 0) {
+      return string;
+    }
+
+    while (n > 0) {
+      let place = n % 26;
+      string = key[place] + string;
+
+      n = place === 0 ? Math.floor(n / 26) - 1 : Math.floor(n / 26);
+    }
+
+    return string;
+  };
+
+  let columnNumber = 701;
+  console.log(convertToTitle(columnNumber));
 }

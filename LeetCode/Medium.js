@@ -30,5 +30,35 @@
   let s = 'babad';
   // let s = 'cbbd';
 
-  console.log(longestPalindrome(s));
+  // console.log(longestPalindrome(s));
+}
+{
+  function lengthOfLongestSubstring(s) {
+    let windowCharsMap = {};
+    let windowStart = 0;
+    let maxLength = 0;
+
+    for (let i = 0; i < s.length; i++) {
+      const endChar = s[i]; // current character
+      // console.log(endChar);
+
+      console.log(windowCharsMap);
+
+      if (windowCharsMap[endChar] >= windowStart) {
+        // console.log(windowCharsMap);
+
+        windowStart = windowCharsMap[endChar] + 1;
+        console.log(`   windowStart ${windowStart}`);
+      }
+
+      windowCharsMap[endChar] = i;
+      maxLength = Math.max(maxLength, i - windowStart + 1);
+      console.log(`       maxLength : ${maxLength}`);
+    }
+
+    return maxLength;
+  }
+
+  let s = 'abcabcbb';
+  // console.log(lengthOfLongestSubstring(s));
 }

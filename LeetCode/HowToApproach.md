@@ -47,7 +47,7 @@
     - Lots of compares : ! N*M where N is the length f the text, M is the length of the pattern we are looking for
     - Linear time guarantee would be better
 
-## Walking Through
+#### Walking Through
 
                                             'A'       'B'        'A'
                                              ^
@@ -75,3 +75,62 @@
         1. even amount of charaters
 
         2. add amount of characters
+
+## Substring and Subsequence
+
+### What is Substring ?
+
+- A substring is a continuos sequence of chracters present within a string , it is a string present inside a string
+
+  for instance - the substrings of the string 'tree' would be - 't', 'r', 'e', 'tre', 'tree', 're', 'ree', 'ee' and ''
+
+- while finding the substring of a string , we must keep in mind that
+
+  - An empty string is also substring of the given string
+  - if the string has a character repeated twice as in the above example of 'tree', we have 'e' repeated twice, so 'e' will be counted only once as a substring
+
+- Essential things to be kept in mind while denoting them
+
+  - We can use '', or "" to denote substring
+  - The entire string is a substring of itself
+  - An empty string is a substring of any string
+  - The order of elements should be the same as the original string
+
+- The Number of substring of a string of length `N` is equal to `(Nx(N+1))/2`
+  ( this expression doesn't include the empty string as a substring)
+
+reference )
+
+- https://www.codingninjas.com/blog/2021/09/18/subsequence-vs-substring/
+
+## Longest Substring Without Repeating Characters (LC #3)
+
+      We can solve this in O(n) time using the 'Sliding Window' approach to problem solving
+      The Sliding Window will represent the current     substring of non repeating characters we are on
+      We will not be working Sliding Window of Fixed      Size, the window will grow or shrink in size as we    iterate through string
+      Current index and value in for loop will Always be      end of the sliding window, As end of window     increase, we conditionally increase start of window
+
+### Length of longest substring Pseudocode
+
+- Create an empty hashMap ( key/val => character/index)
+- Create start and max variable, set both with initial values of zero
+
+- Loop through input string
+  if current Character in HashMap & has index >= start
+  set start to index for chracter found in HashMap +1
+
+- set key / value pair on HashMap to be current Character/ current index
+  if length of current window is greater than max
+  set max to length of current window
+
+Return Max
+
+- Complexity Analysis for Length Of Longest Substring
+
+  Time complexity : O(n)
+
+      - Each character of the string needs to be visited once
+
+  space complexity : O(min(m,n))
+
+      - The number of keys in HashMap is bounded by the size of string n and the size of the charset/ alphabet m
