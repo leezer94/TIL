@@ -262,6 +262,207 @@
   ];
 
   for (const items of shoppingCart) {
-    console.log(items);
+    // console.log(items);
+  }
+
+  const game = {
+    player1: {
+      username: 'Blue',
+      playingAs: 'X',
+    },
+    player2: {
+      username: 'Muffins',
+      playingAs: 'X',
+    },
+    board: [
+      ['O', null, 'X'],
+      ['X', 'X', 'O'],
+      ['X', 'O', null],
+    ],
+  };
+}
+
+{
+  // Arrays and Object Equality
+
+  let nums = [1, 2, 3];
+  let mystery = [1, 2, 3];
+
+  console.log(nums === mystery); // output false
+
+  let moreNums = nums;
+
+  console.log(nums === moreNums); // true
+
+  const user = {
+    username: 'CherryGarcia8',
+    email: 'fdskjf@gamil.com',
+    notifications: [],
+  };
+
+  if (!user.notifications) {
+    console.log('No New Notifications');
+  } // it works
+
+  if (!user.notifications === []) {
+    console.log('Yes New Notifications');
+  } // dosent work
+  console.clear();
+}
+{
+  // Loops ( repeating Code )
+  for (let num = 1; num <= 20; num++) {
+    // console.log(`${num} x ${num} : ${num * num}`);
+  }
+
+  // loops and Arrays
+
+  const examScores = [98, 77, 84, 91, 57, 66];
+
+  for (let i = 0; i < examScores.length; i++) {
+    // console.log(examScores[i]);
+  }
+
+  const myStudents = [
+    {
+      firstName: 'keonhee',
+      grade: 85,
+    },
+    {
+      firstName: 'ronhja',
+      grade: 25,
+    },
+    {
+      firstName: 'mika',
+      grade: 93,
+    },
+    {
+      firstName: 'dels',
+      grade: 23,
+    },
+  ];
+
+  let total = 0;
+
+  for (const student of myStudents) {
+    total += student.grade;
+  }
+  // console.log(total / myStudents.length);
+
+  // Nested for loops
+
+  for (let i = 0; i <= 10; i++) {
+    // console.log(`outer loops : ${i}`);
+    for (let j = 10; j >= 0; j -= 2) {
+      // console.log(`   inner Loops : ${j}`);
+    }
+  }
+
+  const gameBoard = [
+    [4, 32, 8, 4],
+    [64, 8, 32, 2],
+    [8, 32, 16, 4],
+    [2, 8, 4, 2],
+  ];
+
+  let totalScore = 0;
+  for (let i = 0; i < gameBoard.length; i++) {
+    let row = gameBoard[i];
+    for (let j = 0; j < row.length; j++) {
+      totalScore += row[j];
+    }
+  }
+
+  // console.log(totalScore);
+
+  // while loop
+
+  const target = Math.floor(Math.random() * 10);
+
+  let guess = Math.floor(Math.random() * 10);
+
+  let count = 0;
+
+  // while (guess !== target) {
+  //   // console.log(`Target : ${target}, Guess : ${guess}`);
+
+  //   guess = Math.floor(Math.random() * 10);
+  //   count++;
+  // }
+
+  // Break;
+
+  for (let i = 0; i < 10; i++) {
+    // console.log(i);
+
+    if (i > 5) {
+      continue;
+    }
+  }
+
+  while (true) {
+    if (target === guess) break;
+    // console.log(`Target : ${target}, Guess : ${guess}`);
+    guess = Math.floor(Math.random() * 10);
+    count++;
+  }
+  // console.log(`Target : ${target}, Guess : ${guess}`);
+  // console.log(`you win in ${count + 1} try`);
+
+  // for ... of
+
+  const magicSquare = [
+    [2, 7, 6],
+    [9, 5, 1],
+    [4, 3, 8],
+  ];
+
+  for (const row of magicSquare) {
+    let sum = 0;
+    for (const num of row) {
+      sum += num;
+    }
+    console.log(`${row} summed to ${sum}`);
+  }
+
+  // for ... of with Object
+
+  const movieReviews = {
+    Arrival: 9.5,
+    Alien: 100,
+    Amile: 33,
+    ajejejdm: 333,
+    Bekdise: 33,
+    Ckdsej: 122,
+  };
+
+  let movieArr = Object.keys(movieReviews);
+  let movieRates = Object.values(movieReviews);
+
+  for (const movie of movieArr) {
+    // console.log(movie);
+  }
+
+  for (const rates of movieRates) {
+    total += rates;
+  }
+
+  // console.log(total / movieRates.length);
+
+  // for... in
+
+  const jeopardyWinnings = {
+    regularPlay: 2123123,
+    watsonChallenges: 21323,
+    tournermentOfChapions: 2123,
+  };
+
+  for (const prorperty in jeopardyWinnings) {
+    console.log(prorperty); //output : keys
+    console.log(jeopardyWinnings[prorperty]); // values
+  }
+
+  for (const k in [88, 99, 77, 66]) {
+    console.log(k); // output : index
   }
 }
