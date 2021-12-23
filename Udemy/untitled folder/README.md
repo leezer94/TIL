@@ -169,3 +169,9 @@ array2 => 35234324
 
       - difference between for...in and for...of - for...of will iterate over the actual values in an array or an iterable or string
       - for ...in will loop over the keys, the properties in an Object
+
+`Funtions ( reusable procedures )`
+
+- Functions allow us to write resusable, modular code
+- We define a 'chunk\ of code that we can then execute at a later point
+- We use them ALL THE Time

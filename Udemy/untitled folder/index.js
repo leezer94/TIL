@@ -465,4 +465,63 @@
   for (const k in [88, 99, 77, 66]) {
     console.log(k); // output : index
   }
+  console.clear();
+}
+{
+  // Functions
+
+  function rollDie() {
+    let roll = Math.floor(Math.random() * 6) + 1;
+    console.log(roll);
+  }
+
+  function throwDie() {
+    for (let i = 0; i < 5; i++) {
+      rollDie();
+    }
+  }
+
+  let name = 'keonhee';
+
+  function greet(name) {
+    console.log(`Hi! ${name}`);
+  }
+
+  function isValidPassword(password, username) {
+    let isValid = false;
+    password = password.toString();
+
+    if (password.length < 8) {
+      isValid;
+    } else if (password.includes(' ')) {
+      isValid;
+    } else if (password.includes(username)) {
+      isValid;
+    } else {
+      isValid = true;
+    }
+
+    return isValid;
+  }
+
+  // console.log(isValidPassword('dogLuvr123!', 'dogLuvr'));
+
+  function getAvg(arr) {
+    let total = arr.reduce((a, b) => a + b);
+
+    return Math.floor(total / arr.length);
+  }
+
+  // console.log(getAvg([100, 200, 300, 100, 200]));
+
+  function getCard() {
+    const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'K', 'Q', 'A'];
+    const suits = ['spades', 'hearts', 'diamonds'];
+    let value = Math.floor(Math.random(values) * values.length);
+    let suit = Math.floor(Math.random(suits) * suits.length);
+
+    return { value: `${values[value]}`, suit: `${suits[suit]}` };
+  }
+
+  console.log(getCard());
 }
