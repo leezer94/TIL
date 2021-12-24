@@ -134,3 +134,19 @@ Return Max
   space complexity : O(min(m,n))
 
       - The number of keys in HashMap is bounded by the size of string n and the size of the charset/ alphabet m
+
+## Excel Sheet Column Title (LC #168)
+
+-
+
+## Hash Map
+
+### Object vs Maps
+
+    - Obejct is simillar to Map both let you set keys to values,  retreve those values, delete keys, and detect whether something is stored at a key
+    - For this reason Object has been used as Map historically
+
+reference)
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+- https://erim1005.tistory.com/entry/Javascript-%EC%97%90%EC%84%9C-Object%EB%A5%BC-%ED%95%B4%EC%8B%9C%EB%A7%B5%EC%B2%98%EB%9F%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EB%A7%88%EC%84%B8%EC%9A%94

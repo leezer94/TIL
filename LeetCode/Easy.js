@@ -342,7 +342,6 @@
 }
 {
   const convertToTitle = function (n) {
-    // no restrictions on input
     let string = '';
     let key = [
       'Z',
@@ -389,5 +388,57 @@
   };
 
   let columnNumber = 701;
-  console.log(convertToTitle(columnNumber));
+  // console.log(convertToTitle(columnNumber));
+}
+{
+  const intersection = function (num1, num2) {
+    let intersec = [];
+
+    num1.map((num) => {
+      if (num2.includes(num)) {
+        intersec.push(num);
+      }
+    });
+
+    intersec = [...new Set(intersec)];
+
+    return intersec;
+  };
+
+  const num1 = [1, 2, 2, 1];
+  const num2 = [2, 2];
+
+  // console.log(intersection(num1, num2));
+}
+{
+  const intersect = function (nums1, nums2) {
+    let obj = {};
+    let result = [];
+
+    // make a hashmap of the first array of nums
+
+    for (const num of nums1) {
+      if (!obj[num]) {
+        obj[num] = 1;
+      } else {
+        obj[num]++;
+      }
+    }
+    // loop through the second of nums add see if the hasmap has a count of the value
+
+    for (const num of nums2) {
+      if (obj[num] > 0) {
+        result.push(num);
+        obj[num]--;
+      }
+    }
+    console.log(obj);
+
+    return result;
+  };
+
+  const nums1 = [1, 2, 2, 1];
+  const nums2 = [2, 2];
+
+  console.log(intersect(nums1, nums2));
 }
