@@ -219,7 +219,29 @@ Map()
 
 find()
 
-- Returns the value of the first element in the array that satisfies the proveided testing function.
+- Returns the value of the `first element` in the array that satisfies the proveided testing function.
+
+filter()
+
+- Creates a new Array with all elements that ass the test implemented by the provided function
+
+every()
+
+- every() is going to accept a callback it needs to be boolean value if it gets true then whole function returns true
+
+sort()
+
+- arr.sort(compareFunc(a,b))
+
+- If compareFunc(a,b) returns less than 0
+  - sort `a` before `b`
+- If compareFunc(a,b) returns 0
+  - Leave `a` and `b` unchanged with respect to each other
+- If compareFunc(a,b) returns greater than 0
+
+  - sort `b` before `a`
+
+- It changes the original Value
 
 `Implicit return`
 

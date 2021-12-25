@@ -737,7 +737,7 @@
     {
       title: 'Bone: The Complete Edition',
       authors: ['Jeff Smith'],
-      rating: 4.42,
+      rating: 3.42,
       genres: ['fiction', 'graphic novel', 'fantasy'],
     },
     {
@@ -773,7 +773,7 @@
     {
       title: 'Lord of the flies',
       authors: ['William Golding'],
-      rating: 3.67,
+      rating: 2.67,
       genres: ['fiction'],
     },
   ];
@@ -783,5 +783,79 @@
     book.genres.includes('short stories')
   );
 
-  console.log(shortForm);
+  // console.log(shortForm);
+
+  // Every
+
+  const wordsss = ['dog', 'dig', 'log', 'bag', 'wag'];
+
+  const all3 = wordsss.every((word) => word.length === 3);
+
+  const endG = wordsss.every((word) => word[word.length - 1] === 'g');
+
+  // console.log(endG);
+
+  //sort
+
+  const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
+
+  // standart sort
+  // 400.5(a) - 3000(b) = negative number
+  const ascSort = prices.slice().sort((a, b) => a - b); // slice() copy the array
+  const descSort = prices.slice().sort((a, b) => b - a);
+
+  let ratingArr = [];
+
+  for (const book of books) {
+    ratingArr.push(book.rating);
+  }
+
+  // console.log(ratingArr.sort((a, b) => a - b));
+  // console.log(books.sort((a, b) => a.rating - b.rating));
+
+  // reduce()
+
+  const grades = [93, 29, 39, 92, 91, 29, 19];
+
+  const maxGrade = grades.reduce((max, currVal) => {
+    if (currVal > max) return currVal;
+
+    return max;
+  });
+
+  // console.log(maxGrade);
+
+  const votes = ['y', 'n', 'absent', 'y', 'n', 'y', 'y', 'y', 'n', 'y', 'y'];
+
+  const result = votes.reduce((tally, val) => {
+    if (tally[val]) {
+      tally[val]++;
+    } else {
+      tally[val] = 1;
+    }
+    return tally;
+  }, {});
+
+  // console.log(result);
+
+  const bookss = books.reduce((groupedBooks, book) => {
+    const key = Math.floor(book.rating);
+    console.log(key);
+
+    // if (!groupedBooks[key]) groupedBooks[key] = [];
+    // groupedBooks[key].push(book);
+
+    // return groupedBooks;
+
+    if (!groupedBooks[key]) {
+      groupedBooks[key] = [];
+    }
+    groupedBooks[key].push(book);
+
+    return groupedBooks;
+  }, {});
+
+  console.log(bookss);
+  console.log(books.length);
+  // {}
 }
