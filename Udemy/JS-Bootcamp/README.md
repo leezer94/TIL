@@ -246,3 +246,27 @@ sort()
 `Implicit return`
 
 - Adding an implicit return to an arrow function means that you don't have to write the return keyword itself
+
+reduce()
+
+`Spread`
+
+- Spread syntax allows an iterable such as an array to be `expanded` in place where Zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expressions to be `expanded` in places where zero or more key -value pairs (for object literals) are `expanded`
+
+`Spread in Array Literals`
+
+- Create a new array using an existing array.
+- Spreads the elements from one array into a new array
+- same as split('') ?
+
+`Rest`
+
+- it looks like spread but it is actually not
+- Instead of spreading data out into argumens or into a new object or an array it collects things down to a single array
+- It does not work in Arrow Functions
+
+`Destructuring Arrays`
+
+- A short, clean syntax to 'unpack'
+- Valuse from arrays
+- Prorperties from obejcts into distrinct variables

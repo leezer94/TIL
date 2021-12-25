@@ -840,7 +840,7 @@
 
   const bookss = books.reduce((groupedBooks, book) => {
     const key = Math.floor(book.rating);
-    console.log(key);
+    // console.log(key);
 
     // if (!groupedBooks[key]) groupedBooks[key] = [];
     // groupedBooks[key].push(book);
@@ -855,7 +855,198 @@
     return groupedBooks;
   }, {});
 
-  console.log(bookss);
-  console.log(books.length);
+  // console.log(bookss);
+  // console.log(books.length);
   // {}
+}
+{
+  // default parameters
+  const greet = (person, greeting = 'how ye !') => {
+    console.log(`${greeting}, ${person}`);
+  };
+
+  // Spread
+
+  const nums = [12, 34, 345, 234, 34, 243, 12, 324];
+
+  console.log(Math.max(...nums));
+
+  const colors = ['red', 'green', 'yellow', 'blue'];
+
+  const str = 'GOAT';
+
+  const giveMeFour = (a, b, c, d) => {
+    console.log(`a : ${a}`);
+    console.log(`b : ${b}`);
+    console.log(`c : ${c}`);
+    console.log(`d : ${d}`);
+  };
+
+  // console.log(giveMeFour(...str));
+
+  const casa = ['house', 'fsjdke', 'djje'];
+
+  const tosa = ['damsne', 'sdn', 'man'];
+
+  const twosa = [, 'women', 'kids'];
+
+  const mollusca = [...casa, ...tosa];
+  // ['house', 'fsjdke', 'djje', 'damsne', 'sdn', 'man']
+  // making an copy
+
+  const sdkfljsdf = ['sakjdskje', 'daseass', ...casa, ...tosa];
+
+  // console.log(mollusca);
+
+  const casaCopy = [...casa];
+
+  // console.log(casaCopy === casa); // which returns false because the copy is not referencing the same thing
+
+  console.clear();
+
+  const feline = {
+    legs: 4,
+    family: 'Felidae',
+  };
+
+  const canine = {
+    family: 'Canine',
+    furry: true,
+  };
+
+  const dog = {
+    ...canine,
+    isPet: true,
+    adorable: true,
+  };
+
+  const cat = {
+    ...feline,
+    adorable: true,
+  };
+
+  // console.log(dog);
+
+  const catDog = {
+    ...cat,
+    ...dog,
+  };
+
+  // console.log(catDog);
+
+  function sum() {
+    const argsArray = [...arguments];
+
+    return argsArray.reduce((a, b) => a + b);
+  }
+
+  // console.log(sum(4, 5, 6, 7, 8, 9, 9));
+
+  const fullName1 = ['keonhee', 'lee', 'sdad', 'seoul'];
+
+  function fullName(first, last, ...title) {
+    console.log(`first : ${first}`);
+    console.log(`last : ${last}`);
+    console.log(`title : ${title}`);
+  }
+
+  // console.log(fullName('keonhee', 'lee', 23, 'seoul'));
+
+  const multiply = (...nums) => {
+    return nums.reduce((a, b) => a + b);
+  };
+
+  // console.log(multiply(3, 2, 3, 4, 1));
+
+  // Destructing arrays
+
+  const raceResults = [
+    'Eliud Kisoeks',
+    'Keonhee Lee',
+    'Ronja Memminger',
+    'Nemanya Vidic',
+  ];
+
+  // const gold = raceResults[0];
+  // const silver = raceResults[1];
+  // const bronze = raceResults[2];
+
+  // const [gold, siver, bronze] = raceResults;
+  // // same as array order
+
+  // const [first, , , fourth] = raceResults;
+  // const [winner, ...others] = raceResults;
+
+  // console.log(others);
+  // (3) ['Keonhee Lee', 'Ronja Memminger', 'Nemanya Vidic']
+
+  const runner = {
+    first: 'keonhee',
+    last: 'Lee',
+    country: 'south korea',
+    title: 'Elder of the Order of the Golden Heart of Korea',
+  };
+
+  // const { first, country } = runner;
+
+  // const { country: nation } = runner;
+  // const country as nation
+
+  // const { first, last, ...others } = runner;
+
+  // console.log(others);
+
+  // Nested distructering
+
+  const raceResult = [
+    {
+      first: 'keonhee',
+      last: 'lee',
+      country: 'south korea',
+    },
+    {
+      first: 'ronja',
+      last: 'memminger',
+      country: 'germany',
+    },
+    {
+      first: 'david',
+      last: 'kingwill',
+      country: 'south africa',
+    },
+  ];
+
+  // const [{ first }, { country }] = raceResult;
+
+  // const [, silverMedal] = raceResult;
+
+  // console.log(silverMedal);
+
+  // const { country } = silverMedal;
+
+  // console.log(country); //
+
+  // Param Destructing
+
+  // const print = (person) => {
+  //   const { first, last, title } = person;
+
+  //   console.log(`${first} ${last}, ${title}`);
+  // };
+
+  // print(runner);
+
+  function print({ first, last, title }) {
+    console.log(`${first} ${last}, ${title}`);
+  }
+
+  // console.log(print(runner));
+
+  const response = ['HTTP/1.1', '200 OK', 'application/json'];
+
+  function parseResponse([protocol, statusCode, contentType]) {
+    console.log(`Status : ${statusCode}`);
+  }
+
+  console.log(parseResponse(response));
 }
