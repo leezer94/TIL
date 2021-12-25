@@ -440,5 +440,30 @@
   const nums1 = [1, 2, 2, 1];
   const nums2 = [2, 2];
 
-  console.log(intersect(nums1, nums2));
+  // console.log(intersect(nums1, nums2));
+}
+{
+  const maxProfit = function (prices) {
+    let maxProfit = 0;
+    let minPrice = prices[0];
+
+    for (let sell = 1; sell < prices.length; sell++) {
+      let sellPrice = prices[sell];
+      console.log(sellPrice);
+      let profit = sellPrice - minPrice;
+
+      console.log(
+        `sellPrice : ${sellPrice} -  minPrice : ${minPrice} = ${profit}`
+      );
+
+      maxProfit = Math.max(maxProfit, profit);
+
+      if (sellPrice < minPrice) minPrice = sellPrice;
+    }
+
+    return maxProfit;
+  };
+
+  let prices = [7, 3, 5, 1, 6, 4];
+  // console.log(maxProfit(prices));
 }
