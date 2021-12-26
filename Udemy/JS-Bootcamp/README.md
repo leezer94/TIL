@@ -270,3 +270,10 @@ reduce()
 - A short, clean syntax to 'unpack'
 - Valuse from arrays
 - Prorperties from obejcts into distrinct variables
+
+`This`
+
+- `Let` , `Const` is not added to the global scope while `Var` is
+- `This` is a reference to an object and that object represents the current execution
+
+- in the object using this lead us to window ,

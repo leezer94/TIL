@@ -1048,5 +1048,245 @@
     console.log(`Status : ${statusCode}`);
   }
 
-  console.log(parseResponse(response));
+  // console.log(parseResponse(response));
+
+  console.clear();
+}
+{
+  // short hand properties
+
+  const getStats = (arr) => {
+    const max = Math.max(...arr);
+    const min = Math.min(...arr);
+    const sum = arr.reduce((a, b) => a + b);
+    const avg = Math.floor(sum / arr.length);
+
+    return {
+      max,
+      min,
+      sum,
+      avg,
+    };
+  };
+
+  const reviews = [4.5, 5.5, 4.3, 2.5, 6.8, 8.5];
+
+  const stats = getStats(reviews);
+
+  const role = 'host';
+  const role2 = 'Director';
+
+  const person = 'keonhee lee';
+  const person2 = 'Ronja Memminger';
+
+  const team = {
+    [role]: person,
+    [role2]: person2,
+    [1 + 6 + 9]: 'sixteen',
+  };
+
+  // team[role] = person;
+  // team['role'] = person;
+
+  // function addProp(obj, key, value) {
+  //   const copy = { ...obj };
+
+  //   copy[key] = value;
+  //   return copy;
+  // }
+
+  const addProp = (obj, key, value) => {
+    return {
+      ...obj,
+      [key]: value,
+    };
+  };
+
+  const res = addProp(team, 'phone', 'samsung');
+
+  // console.log(res);
+
+  // Methods
+
+  const math = {
+    add(a, b) {
+      return a + b;
+    },
+    multiply(a, b) {
+      return a * b;
+    },
+  };
+
+  // console.log(math.multiply(3, 4));
+}
+
+{
+  // This
+
+  const person = {
+    first: 'Cherlin',
+    last: 'Sarkisian',
+    nickName: 'Cher',
+    fullName() {
+      const { first, last, nickName } = this;
+      return `Fullname : ${first} ${last} AKA ${nickName}`;
+    },
+
+    printBio() {
+      const fullName = this.fullName();
+
+      console.log(`fullName : ${fullName}`);
+    },
+
+    laugh: () => {
+      console.log(this);
+    },
+  };
+
+  // console.log(person.printBio());
+
+  const annoyer = {
+    phrases: [
+      'literally',
+      'cray cray',
+      "i can't even",
+      'Totes!',
+      'YOLO',
+      'whimp whimp',
+      'mno',
+    ],
+    pickPhrase() {
+      const { phrases } = this;
+
+      const index = Math.floor(Math.random() * phrases.length);
+      return phrases[index];
+    },
+    start() {
+      this.timerId = setInterval(() => {
+        console.log(this.pickPhrase());
+      }, 1000);
+    },
+    // set to the global scope window thats why it runs ok
+    stop() {
+      setInterval(() => {
+        const timerId = this.timerId;
+        clearInterval(timerId);
+      }, 4200);
+    },
+  };
+
+  // annoyer.start();
+  // annoyer.stop();
+}
+{
+  // Deck of Cards
+
+  // const myDeck = {
+  // deck: [],
+  // drawnCard: [],
+  // suits: ['hearts', 'diamonds', 'spades', 'clubs'],
+  // values: '2,3,4,5,6,7,8,9,10,J,Q,K,A',
+  // // Creates the deck in order
+  // initializeDeck() {
+  //   const { suits, values, deck } = this;
+  //   for (const value of values.split(',')) {
+  //     for (const suit of suits) {
+  //       deck.push({
+  //         value,
+  //         suit,
+  //       });
+  //     }
+  //   }
+  // },
+  // //
+  // drawCard() {
+  //   const card = this.deck.pop();
+  //   this.drawnCard.push(card);
+  //   return card;
+  // },
+  // drawMultiple(numCards) {
+  //   const cards = [];
+  //   for (let i = 0; i < numCards; i++) {
+  //     cards.push(this.drawCard());
+  //   }
+  //   return cards;
+  // },
+  // shuffle() {
+  //   // destructuring deck
+  //   const { deck } = this;
+  //   // loop over deck Array backward
+  //   for (let i = deck.length - 1; i > 0; i--) {
+  //     // pick random index before current element
+  //     let j = Math.floor(Math.random() * (i + 1));
+  //     // swap
+  //     [deck[i], deck[j]] = [deck[j], deck[i]];
+  //   }
+  // },
+  // };
+
+  const makeDeck = () => {
+    return {
+      deck: [],
+      drawnCard: [],
+      suits: ['hearts', 'diamonds', 'spades', 'clubs'],
+      values: '2,3,4,5,6,7,8,9,10,J,Q,K,A',
+
+      // Creates the deck in order
+      initializeDeck() {
+        const { suits, values, deck } = this;
+
+        for (const value of values.split(',')) {
+          for (const suit of suits) {
+            deck.push({
+              value,
+              suit,
+            });
+          }
+        }
+      },
+
+      //
+      drawCard() {
+        const card = this.deck.pop();
+
+        this.drawnCard.push(card);
+
+        return card;
+      },
+
+      drawMultiple(numCards) {
+        const cards = [];
+        for (let i = 0; i < numCards; i++) {
+          cards.push(this.drawCard());
+        }
+
+        return cards;
+      },
+
+      shuffle() {
+        // destructuring deck
+        const { deck } = this;
+
+        // loop over deck Array backward
+        for (let i = deck.length - 1; i > 0; i--) {
+          // pick random index before current element
+          let j = Math.floor(Math.random() * (i + 1));
+          // swap
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+      },
+    };
+  };
+
+  const myDeck = makeDeck();
+
+  myDeck.initializeDeck();
+
+  myDeck.shuffle();
+
+  const card = myDeck.drawCard();
+
+  console.log(myDeck);
+
+  console.log(card);
 }
