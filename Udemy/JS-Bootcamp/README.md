@@ -277,3 +277,11 @@ reduce()
 - `This` is a reference to an object and that object represents the current execution
 
 - in the object using this lead us to window ,
+
+---
+
+## DOM
+
+- The Dom jis a javaScript representation of a webpage
+- It's your JS `window` into the contents of a webpage
+- It's just a bunch of Objects that you can interact with via JS

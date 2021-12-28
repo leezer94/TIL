@@ -1286,7 +1286,7 @@
 
   const card = myDeck.drawCard();
 
-  console.log(myDeck);
+  // console.log(myDeck);
 
-  console.log(card);
+  // console.log(card);
 }
