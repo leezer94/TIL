@@ -467,3 +467,30 @@
   let prices = [7, 3, 5, 1, 6, 4];
   // console.log(maxProfit(prices));
 }
+{
+  const twoSum = function (nums, target) {
+    const previousValues = {};
+    for (let i = 0; i < nums.length; i++) {
+      const curretNumber = nums[i];
+
+      console.log(`currentNum : ${curretNumber}`);
+      const neededValue = target - curretNumber;
+      console.log(`neededValue : ${neededValue}`);
+      const index2 = previousValues[neededValue];
+      console.log(previousValues[neededValue]);
+      if (index2 != null) {
+        return [index2, i];
+      } else {
+        previousValues[curretNumber] = i;
+        console.log(`i : ${i}`);
+      }
+
+      console.log(previousValues);
+    }
+  };
+
+  let nums = [2, 7, 11, 15];
+  let target = 9;
+
+  console.log(twoSum(nums, target));
+}
