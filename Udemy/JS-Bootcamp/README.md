@@ -285,3 +285,18 @@ reduce()
 - The Dom jis a javaScript representation of a webpage
 - It's your JS `window` into the contents of a webpage
 - It's just a bunch of Objects that you can interact with via JS
+
+## CallStack
+
+- The mechanism the JS interpreter uses to keep track of its place in a script that calls multiple functions
+
+- which function is currently run
+- which function is not done yet
+
+### stack
+
+- last thing you put in is first thing to put out
+
+## Promises
+
+- A Promise is an object representing the eventual completion or failure oif an Astnchronous operation
