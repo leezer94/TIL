@@ -119,25 +119,10 @@
   // console.log(isValid(s));
 }
 {
-  const removeDuplicates = function (nums) {
-    let uniqueCursor = 1;
-
-    // Loop through the array of number
-    for (let i = 1; i < nums.length; i++) {
-      // Find unique values
-      if (nums[i] !== nums[i - 1]) {
-        // Move unique values to follow the last unique value found
-        nums[uniqueCursor] = nums[i];
-
-        // Move the unique value cursor onward
-        uniqueCursor++;
-      }
-    }
-    return uniqueCursor;
-  };
+  const removeDuplicates = function (nums) {};
 
   let nums = [1, 1, 2];
-  // console.log(removeDuplicates(nums));
+  console.log(removeDuplicates(nums));
 }
 {
   const strStr = function (haystack, needle) {
@@ -470,27 +455,45 @@
 {
   const twoSum = function (nums, target) {
     const previousValues = {};
+
     for (let i = 0; i < nums.length; i++) {
       const curretNumber = nums[i];
-
-      console.log(`currentNum : ${curretNumber}`);
       const neededValue = target - curretNumber;
-      console.log(`neededValue : ${neededValue}`);
       const index2 = previousValues[neededValue];
-      console.log(previousValues[neededValue]);
-      if (index2 != null) {
+
+      if (index2 in previousValues) {
         return [index2, i];
       } else {
         previousValues[curretNumber] = i;
-        console.log(`i : ${i}`);
       }
-
-      console.log(previousValues);
     }
   };
 
   let nums = [2, 7, 11, 15];
   let target = 9;
 
-  console.log(twoSum(nums, target));
+  // console.log(twoSum(nums, target));
+}
+{
+  const maxSubArray = function (nums) {
+    let localMax = nums[0];
+    let globalMax = nums[0];
+
+    for (let i = 1; i < nums.length; i++) {
+      localMax = Math.max(nums[i], localMax + nums[i]);
+
+      if (localMax > globalMax) {
+        globalMax = localMax;
+      }
+    }
+
+    return globalMax;
+  };
+
+  // let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+  let nums = [1];
+  // let nums = [5, 4, -1, 7, 8];
+  // let nums = [1, 2, -1, -2, 2, 1, -2, 1];
+
+  // console.log(maxSubArray(nums));
 }
