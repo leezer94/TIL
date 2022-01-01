@@ -153,101 +153,21 @@ const moveX = (element, amount, delay) => {
 
 // refactored in Promise
 
-moveX(callButton, 300, 1000)
-  .then(() => moveX(callButton, -400, 1000))
-  .then(() => moveX(callButton, 10, 1000))
-  .then(() => moveX(callButton, 10, 1000))
-  .then(() => moveX(callButton, 10, 1000))
-  .then(() => moveX(callButton, 10, 1000))
-  .then(() => moveX(callButton, 10, 1000))
-  .then(() => moveX(callButton, 10, 1000))
-  .then(() => console.log('done moving'))
-  .catch(({ bodyBoundary, elRight, amount }) => {
-    console.log(`body is ${bodyBoundary}px wide`);
-    console.log(`right is ${elRight}px, ${amount}px is too Large`);
-  });
+// moveX(callButton, 300, 1000)
+// .then(() => moveX(callButton, -400, 1000))
+// .then(() => moveX(callButton, 10, 1000))
+// .then(() => moveX(callButton, 10, 1000))
+// .then(() => moveX(callButton, 10, 1000))
+// .then(() => moveX(callButton, 10, 1000))
+// .then(() => moveX(callButton, 10, 1000))
+// .then(() => moveX(callButton, 10, 1000))
+// .then(() => console.log('done moving'))
+// .catch(({ bodyBoundary, elRight, amount }) => {
+// console.log(`body is ${bodyBoundary}px wide`);
+// console.log(`right is ${elRight}px, ${amount}px is too Large`);
+// });
 
 // Promise is an Object
-
-// const willGetYouADog = new Promise((resolve, reject) => {
-//   const rand = Math.random();
-//   console.log(rand);
-//   if (rand < 0.5) {
-//     resolve();
-//   } else {
-//     reject();
-//   }
-// });
-
-// // this runs if our promises are resolved
-// willGetYouADog.then(() => {
-//   console.log('yay we got a dog');
-// });
-
-// // this runs if our promises are rejected
-// willGetYouADog.catch(() => {
-//   console.log('no fuckin dog for me ');
-// });
-
-// const makeDogPromise = () => {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       const rand = Math.random();
-//       console.log(rand);
-//       if (rand < 0.5) {
-//         resolve();
-//       } else {
-//         reject();
-//       }
-//     }, 5000);
-//   });
-// };
-
-// // this runs if our promises are resolved
-// makeDogPromise()
-//   .then(() => {
-//     console.log('yay we got a dog');
-//   })
-//   // this runs if our promises are rejected
-//   .catch(() => {
-//     console.log('no fuckin dog for me ');
-//   });
-
-// // request
-// const fakeRequest = (url) => {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       const pages = {
-//         '/users': [
-//           { id: 1, username: 'bibo' },
-//           { id: 5, username: 'leezer' },
-//         ],
-//         '/about': 'This is the About page',
-//       };
-//       const data = pages[url];
-//       if (data) {
-//         resolve({ status: 200, data });
-//       } else {
-//         reject({ status: 404 });
-//       }
-//     }, 1000);
-//   });
-// };
-
-// fakeRequest('/users')
-//   .then((res) => {
-//     console.log('status code', res.status);
-//     console.log('data', res.data);
-//     console.log('request worked');
-//   })
-//   .catch((res) => {
-//     console.log(res.status);
-//     console.log('request failed');
-//   });
-
-// fakeRequest();
-
-// promise chaining
 
 const fakeRequest = (url) => {
   return new Promise((resolve, reject) => {
@@ -299,4 +219,104 @@ fakeRequest('/users')
   // this will run if any of then() is rejected
   .catch((error) => {
     console.log('OH NO', error);
+  });
+
+// Request
+// AJAX
+
+// const firstRequest = new XMLHttpRequest();
+
+// firstRequest.addEventListener('load', function () {
+//   // console.log('It Worked');
+//   //referencing
+//   const data = JSON.parse(this.responseText);
+//   const filmUrl = data.results[0].films[0];
+//   const filmReq = new XMLHttpRequest();
+
+//   filmReq.addEventListener('load', function () {
+//     // console.log('second Req works');
+//     const filmData = JSON.parse(this.responseText);
+//     // console.log(filmData.title);
+//   });
+//   filmReq.addEventListener('error', function (e) {
+//     console.log('Error', e);
+//   });
+
+//   filmReq.open('get', filmUrl);
+
+//   filmReq.send();
+
+//   // for (const planet of data.results) {
+//   //   console.log(planet.name);
+//   // }
+// });
+// firstRequest.addEventListener('error', () => {
+//   console.log('Error');
+// });
+
+// firstRequest.open('GET', 'https://swapi.dev/api/planets/');
+
+// firstRequest.send();
+
+// console.log('Request Sent!');
+
+// Fetch()
+
+// chaning fetch request
+
+const checkStatusAndParse = (response) => {
+  if (!response.ok) {
+    throw new Error(`Status Code Error: ${response.status}`);
+  }
+
+  return response.json();
+};
+
+const printPlanets = (data) => {
+  // console.log('Loaded 10 more planets...');
+  for (let planet of data.results) {
+    // console.log(planet.name);
+  }
+
+  return Promise.resolve(data.next);
+};
+
+const fetchNextPlanets = (url = 'https://swapi.dev/api/planets/') => {
+  return fetch(url);
+};
+
+fetchNextPlanets()
+  .then(checkStatusAndParse)
+  .then(printPlanets)
+  .then(fetchNextPlanets)
+  .then(checkStatusAndParse)
+  .then(printPlanets)
+
+  .catch((err) => {
+    console.log('something went wrong');
+    console.log(err);
+    // this runs when network is off
+  });
+
+//  Axios ( Library) => PreParsed of us
+
+const fetchNextPlanetss = (url = 'https://swapi.dev/api/planets/') => {
+  return axios.get(url);
+};
+
+const printPlanetss = ({ data }) => {
+  for (let planet of data.results) {
+    console.log(planet.name);
+  }
+  return Promise.resolve(data.next);
+};
+
+fetchNextPlanetss()
+  .then(printPlanetss)
+  .then(fetchNextPlanetss)
+  .then(printPlanetss)
+  .then(fetchNextPlanetss)
+  .then(printPlanetss)
+  .catch((err) => {
+    console.log(err);
   });

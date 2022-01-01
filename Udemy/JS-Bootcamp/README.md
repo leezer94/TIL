@@ -300,3 +300,16 @@ reduce()
 ## Promises
 
 - A Promise is an object representing the eventual completion or failure oif an Astnchronous operation
+
+## AJAX ( Asynchronous Javascript and Json) => AJAJ
+
+- using these(not refreshing page but getting the new content user want) request that we can make via JavaScript asynchronously
+
+- Asynchronous JavaScript to load some data from a server or to send data to a server to save something to a database , wharever it is, we're communication with a server behind the scenes not in between page loads like we had
+
+- XML is a way of just grouping content and add meaning to your data
+
+## JSON ( Java Script Object Notation)
+
+- must be wrapped in double quotes("")
+- It is simillar to Javascript But NOT JAVASCRIPT
