@@ -313,3 +313,17 @@ reduce()
 
 - must be wrapped in double quotes("")
 - It is simillar to Javascript But NOT JAVASCRIPT
+
+## Async / Await
+
+### Async
+
+- fancy way to wrapping Promise in function
+- Async functions always return a promise
+- If the function returns a value, the promise will be resolved with that value
+- If the function throws an exception, the promise will be rejected
+
+### Await
+
+- We can only use the await keyword inside of function declared with async
+- await will pause the execution of the function, waiting for a promise to be resolved
