@@ -122,7 +122,7 @@
   const removeDuplicates = function (nums) {};
 
   let nums = [1, 1, 2];
-  console.log(removeDuplicates(nums));
+  // console.log(removeDuplicates(nums));
 }
 {
   const strStr = function (haystack, needle) {
@@ -396,38 +396,6 @@
   // console.log(intersection(num1, num2));
 }
 {
-  const intersect = function (nums1, nums2) {
-    let obj = {};
-    let result = [];
-
-    // make a hashmap of the first array of nums
-
-    for (const num of nums1) {
-      if (!obj[num]) {
-        obj[num] = 1;
-      } else {
-        obj[num]++;
-      }
-    }
-    // loop through the second of nums add see if the hasmap has a count of the value
-
-    for (const num of nums2) {
-      if (obj[num] > 0) {
-        result.push(num);
-        obj[num]--;
-      }
-    }
-    console.log(obj);
-
-    return result;
-  };
-
-  const nums1 = [1, 2, 2, 1];
-  const nums2 = [2, 2];
-
-  // console.log(intersect(nums1, nums2));
-}
-{
   const maxProfit = function (prices) {
     let maxProfit = 0;
     let minPrice = prices[0];
@@ -496,4 +464,101 @@
   // let nums = [1, 2, -1, -2, 2, 1, -2, 1];
 
   // console.log(maxSubArray(nums));
+}
+{
+  var majorityElement = function (nums) {
+    const counts = {};
+    const majorityNum = Math.floor(nums.length / 2);
+
+    for (const num of nums) {
+      if (!counts[num]) {
+        counts[num] = 0;
+      }
+
+      counts[num]++;
+    }
+
+    for (const key in counts) {
+      if (counts[key] > majorityNum) {
+        return key;
+      }
+    }
+  };
+
+  // let nums = [3, 2, 3]; // 3
+  let nums = [2, 2, 1, 1, 1, 2, 2]; // 2
+  // console.log(majorityElement(nums));
+}
+{
+  var containsDuplicate = function (nums) {
+    const len = nums.length;
+    const removedDupLen = [...new Set(nums)].length;
+
+    return len === removedDupLen ? false : true;
+  };
+
+  let nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
+  // console.log(containsDuplicate(nums));
+}
+{
+  var isAnagram = function (s, t) {
+    s = s.split('').sort().join('');
+    t = t.split('').sort().join('');
+
+    return s === t ? true : false;
+  };
+
+  let s = 'anagram';
+  let t = 'nagaram';
+  // console.log(isAnagram(s, t));
+}
+{
+  var missingNumber = function (nums) {
+    nums = nums.sort((a, b) => a - b);
+    const len = nums.length;
+
+    for (let i = 0; i <= len; i++) {
+      if (i !== nums[i]) return i;
+    }
+  };
+  let nums = [3, 0, 1];
+  // let nums = [1];
+  // let nums = [0, 1];
+  // let nums = [9, 6, 4, 2, 3, 5, 7, 0, 1];
+
+  // console.log(missingNumber(nums));
+}
+{
+  const intersect = function (nums1, nums2) {
+    const obj = {};
+    let result = [];
+
+    for (const num of nums1) {
+      if (!obj[num]) {
+        obj[num] = 1;
+      } else {
+        obj[num]++;
+      }
+    }
+
+    for (const num of nums2) {
+      if (obj[num]) {
+        result.push(num);
+        obj[num]--;
+      }
+
+      console.log(obj);
+    }
+
+    return result;
+  };
+
+  let nums1 = [1, 2, 2, 1];
+  // let nums1 = [4, 9, 5];
+  let nums2 = [2, 2];
+  // let nums2 = [9, 4, 9, 8, 4];
+  // let nums1 = [1, 2];
+  // let nums2 = [1, 1];
+
+  console.log(intersect(nums1, nums2));
 }
