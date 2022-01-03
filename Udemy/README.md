@@ -327,3 +327,25 @@ reduce()
 
 - We can only use the await keyword inside of function declared with async
 - await will pause the execution of the function, waiting for a promise to be resolved
+
+## Classes, Prototype, New object
+
+### Prototype
+
+- there is one prototype and each array has reference (**proto**)(method)
+
+### factory function
+
+- which would make an object that automatically had a hex method and an RGB method
+
+### Class
+
+#### constructor
+
+- constructor is a function that will execute immediately whenever a new color is created
+
+#### super, Extends, SubClasses
+
+super
+
+- is going to reference the class we are extending from
