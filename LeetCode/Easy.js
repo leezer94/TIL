@@ -560,5 +560,79 @@
   // let nums1 = [1, 2];
   // let nums2 = [1, 1];
 
-  console.log(intersect(nums1, nums2));
+  // console.log(intersect(nums1, nums2));
+}
+{
+  var merge = function (nums1, m, nums2, n) {
+    nums1.splice(m, n, ...nums2);
+    return nums1.sort((a, b) => a - b);
+  };
+  let nums1 = [1, 2, 3, 0, 0, 0];
+  let m = 3;
+  let nums2 = [2, 5, 6];
+  let n = 3;
+
+  // console.log(merge(nums1, m, nums2, n));
+}
+{
+  var findTheDifference = function (s, t) {
+    s = s.split('').sort();
+    t = t.split('').sort();
+
+    for (let i = 0; i < t.length; i++) {
+      if (s[i] !== t[i]) {
+        return t[i];
+      }
+    }
+  };
+  let s =
+    'ymbgaraibkfmvocpizdydugvalagaivdbfsfbepeyccqfepzvtpyxtbadkhmwmoswrcxnargtlswqemafandgkmydtimuzvjwxvlfwlhvkrgcsithaqlcvrihrwqkpjdhgfgreqoxzfvhjzojhghfwbvpfzectwwhexthbsndovxejsntmjihchaotbgcysfdaojkjldprwyrnischrgmtvjcorypvopfmegizfkvudubnejzfqffvgdoxohuinkyygbdzmshvyqyhsozwvlhevfepdvafgkqpkmcsikfyxczcovrmwqxxbnhfzcjjcpgzjjfateajnnvlbwhyppdleahgaypxidkpwmfqwqyofwdqgxhjaxvyrzupfwesmxbjszolgwqvfiozofncbohduqgiswuiyddmwlwubetyaummenkdfptjczxemryuotrrymrfdxtrebpbjtpnuhsbnovhectpjhfhahbqrfbyxggobsweefcwxpqsspyssrmdhuelkkvyjxswjwofngpwfxvknkjviiavorwyfzlnktmfwxkvwkrwdcxjfzikdyswsuxegmhtnxjraqrdchaauazfhtklxsksbhwgjphgbasfnlwqwukprgvihntsyymdrfovaszjywuqygpvjtvlsvvqbvzsmgweiayhlubnbsitvfxawhfmfiatxvqrcwjshvovxknnxnyyfexqycrlyksderlqarqhkxyaqwlwoqcribumrqjtelhwdvaiysgjlvksrfvjlcaiwrirtkkxbwgicyhvakxgdjwnwmubkiazdjkfmotglclqndqjxethoutvjchjbkoasnnfbgrnycucfpeovruguzumgmgddqwjgdvaujhyqsqtoexmnfuluaqbxoofvotvfoiexbnprrxptchmlctzgqtkivsilwgwgvpidpvasurraqfkcmxhdapjrlrnkbklwkrvoaziznlpor';
+  let t =
+    'qhxepbshlrhoecdaodgpousbzfcqjxulatciapuftffahhlmxbufgjuxstfjvljybfxnenlacmjqoymvamphpxnolwijwcecgwbcjhgdybfffwoygikvoecdggplfohemfypxfsvdrseyhmvkoovxhdvoavsqqbrsqrkqhbtmgwaurgisloqjixfwfvwtszcxwktkwesaxsmhsvlitegrlzkvfqoiiwxbzskzoewbkxtphapavbyvhzvgrrfriddnsrftfowhdanvhjvurhljmpxvpddxmzfgwwpkjrfgqptrmumoemhfpojnxzwlrxkcafvbhlwrapubhveattfifsmiounhqusvhywnxhwrgamgnesxmzliyzisqrwvkiyderyotxhwspqrrkeczjysfujvovsfcfouykcqyjoobfdgnlswfzjmyucaxuaslzwfnetekymrwbvponiaojdqnbmboldvvitamntwnyaeppjaohwkrisrlrgwcjqqgxeqerjrbapfzurcwxhcwzugcgnirkkrxdthtbmdqgvqxilllrsbwjhwqszrjtzyetwubdrlyakzxcveufvhqugyawvkivwonvmrgnchkzdysngqdibhkyboyftxcvvjoggecjsajbuqkjjxfvynrjsnvtfvgpgveycxidhhfauvjovmnbqgoxsafknluyimkczykwdgvqwlvvgdmufxdypwnajkncoynqticfetcdafvtqszuwfmrdggifokwmkgzuxnhncmnsstffqpqbplypapctctfhqpihavligbrutxmmygiyaklqtakdidvnvrjfteazeqmbgklrgrorudayokxptswwkcircwuhcavhdparjfkjypkyxhbgwxbkvpvrtzjaetahmxevmkhdfyidhrdeejapfbafwmdqjqszwnwzgclitdhlnkaiyldwkwwzvhyorgbysyjbxsspnjdewjxbhpsvj';
+
+  // console.log(findTheDifference(s, t));
+}
+{
+  var thirdMax = function (nums) {
+    nums = nums.sort((a, b) => a - b);
+    nums = [...new Set(nums)];
+    const len = nums.length;
+
+    let max = Math.max(...nums);
+    let maxNums = [];
+
+    while (nums.length > 0)
+      for (const num of nums) {
+        if (num === max) {
+          maxNums.push(num);
+          nums.pop();
+          max = Math.max(...nums);
+        }
+      }
+
+    return len < 3 ? maxNums[0] : maxNums[2];
+  };
+  //   var thirdMax = function(nums) {
+  //     nums = Array.from(new Set(nums));
+  //     var len = nums.length;
+  //     if(len<=2){
+  //     	return Math.max(...nums);
+  //     }
+  //     if(len===3){
+  //     	return Math.min(...nums);
+  //     }
+  //     nums = nums.sort((a,b)=>{return b-a;})
+  //     return nums[2];
+  // };
+
+  let nums = [2, 2, 3, 1];
+  // let nums = [2, 1];
+  // console.log(thirdMax(nums));
+}
+{
+  var findContentChildren = function (g, s) {};
+  let g = [1, 2, 3];
+  let s = [1, 1];
+
+  console.log(findContentChildren(g, s));
 }
