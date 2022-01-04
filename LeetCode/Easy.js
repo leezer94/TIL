@@ -634,5 +634,73 @@
   let g = [1, 2, 3];
   let s = [1, 1];
 
-  console.log(findContentChildren(g, s));
+  // console.log(findContentChildren(g, s));
+}
+{
+  var findRelativeRanks = function (score) {
+    let ascending = score.slice().sort((a, b) => b - a);
+    const [gold, silver, bronze] = ascending;
+
+    for (let i = 0; i < score.length; i++) {
+      if (score[i] === gold) {
+        score[i] = 'Gold Medal';
+      } else if (score[i] === silver) {
+        score[i] = 'Silver Medal';
+      } else if (score[i] === bronze) {
+        score[i] = 'Bronze Medal';
+      } else {
+        score[i] = String(ascending.indexOf(score[i]) + 1);
+      }
+    }
+
+    return score;
+  };
+  let score = [10, 3, 8, 9, 4];
+
+  // console.log(findRelativeRanks(score));
+}
+{
+  var arrayPairSum = function (nums) {
+    nums.sort((a, b) => a - b);
+    let result = 0;
+
+    for (let i = 0; i < nums.length; i += 2) {
+      result += nums[i];
+    }
+
+    return result;
+  };
+
+  // let nums = [1, 4, 3, 2];
+  let nums = [6, 2, 6, 5, 1, 2];
+
+  // console.log(arrayPairSum(nums));
+}
+{
+  var findLHS = function (nums) {
+    let obj = {},
+      result = 0;
+
+    for (let num of nums) {
+      if (!obj[num]) {
+        obj[num] = 1;
+      } else {
+        obj[num]++;
+      }
+    }
+
+    for (let key in obj) {
+      if (obj[parseInt(key) + 1]) {
+        result = Math.max(result, obj[key] + obj[parseInt(key) + 1]);
+      }
+    }
+
+    return result;
+  };
+
+  let nums = [1, 3, 2, 2, 5, 2, 3, 7];
+  // let nums = [1, 2, 3, 4];
+  // let nums = [1, 1, 1, 1];
+
+  console.log(findLHS(nums));
 }
