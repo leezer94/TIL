@@ -702,5 +702,120 @@
   // let nums = [1, 2, 3, 4];
   // let nums = [1, 1, 1, 1];
 
-  console.log(findLHS(nums));
+  // console.log(findLHS(nums));
+}
+{
+  var findErrorNums = function (nums) {
+    let obj = {};
+    let duplicated;
+
+    for (const num of nums) {
+      if (!obj[num]) {
+        obj[num] = 1;
+      } else {
+        obj[num]++;
+      }
+    }
+
+    for (const key in obj) {
+      if (obj[key] > 1) {
+        duplicated = parseInt(key);
+      }
+    }
+    function isSortedArr(nums) {
+      for (let i = 1; i < nums.length; i++) {
+        if (nums[i] < nums[i - 1]) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+    console.log(nums.sort((a, b) => a - b) === [1, 3, 3]);
+
+    if (!isSortedArr(nums)) {
+      nums = nums.sort((a, b) => a - b);
+      if (nums.indexOf(duplicated) !== duplicated - 1) {
+        return [duplicated, nums.indexOf(duplicated) + 1];
+      } else {
+        let sliced = nums.slice(duplicated, nums.length);
+        return [duplicated, sliced[0] + 1];
+      }
+    } else {
+      if (nums.indexOf(duplicated) !== duplicated - 1) {
+        return [duplicated, nums.indexOf(duplicated) + 1];
+      } else {
+        let sliced = nums.slice(duplicated, nums.length);
+        return [duplicated, sliced[0] + 1];
+      }
+    }
+  };
+  // let nums = [1, 2, 2, 4];
+  // let nums = [1, 1];
+  // let nums = [2, 2];
+  // let nums = [3, 2, 2];
+  let nums = [];
+  // let nums = [1, 2, 3, 4, 3, 6];
+  // let nums = [3, 2, 3, 4, 5, 6];
+
+  // console.log(findErrorNums(nums));
+}
+{
+  var dominantIndex = function (nums) {
+    if (nums.length === 1) return 0;
+    const max = Math.max(...nums);
+    let newArr = [];
+    newArr = nums.filter((num) => num !== max);
+    const isBiggerThanMax = newArr.every((num) => num * 2 <= max);
+    return isBiggerThanMax ? nums.indexOf(max) : -1;
+  };
+
+  let nums = [3, 6, 1, 0]; // 1
+  // let nums = [1, 2, 3, 4]; // -1
+  // let nums = [1]; // 0
+
+  // console.log(dominantIndex(nums));
+}
+{
+  var fairCandySwap = function (aliceSizes, bobSizes) {
+    let longer;
+    let shorter;
+    let result = [];
+
+    if (aliceSizes.length >= bobSizes.length) {
+      longer = aliceSizes;
+      shorter = bobSizes;
+    } else {
+      longer = bobSizes;
+      shorter = aliceSizes;
+    }
+
+    while (shorter.length < longer.length) {
+      shorter.push(0);
+    }
+    let sumA = longer.reduce((a, b) => a + b);
+    let sumB = shorter.reduce((a, b) => a + b);
+    console.log(longer);
+    console.log(shorter);
+
+    let difference = sumA - aliceSizes[0];
+    console.log(difference);
+    for (let i = 0; i < longer.length; i++) {
+      if (longer[i] > difference) {
+        result[1] = longer[i];
+      }
+    }
+    result[0] = aliceSizes[0];
+
+    console.log(result);
+  };
+
+  // let aliceSizes = [1, 1];
+  // let bobSizes = [2, 2];
+  let aliceSizes = [1, 2];
+  let bobSizes = [2, 3];
+  // let aliceSizes = [2];
+  // let bobSizes = [1, 3];
+
+  console.log(fairCandySwap(aliceSizes, bobSizes));
 }
