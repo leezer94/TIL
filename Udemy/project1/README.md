@@ -29,3 +29,41 @@
     - Emit an event that the timer is done `border related`
       (Watch for this event. When it occurs, reset the border)
     - Reset internal timer to get ready for another run `border related`
+
+---
+
+## Class Timer
+
+- constructor (durationInput, startButton, pauseButton)
+- start()
+- pause()
+- onDurationChange()
+- tick()
+
+## The value of `this`
+
+- Did you define a function with an arrow function ?
+  - Write 'console.log(`this`)' one the first valud line above the arrow function.
+  - Value of `this` in the arrow function will be equal to that console.log
+- Did you call `bind`, `call` or `apply` on the function when you invoked it?
+  - `this` is equal to the first argument of `bind`, `call` or `apply`
+- All other cases
+  - `this` is equal to whatever is to the left of the `.` in the method call
+
+## SVG Element
+
+- SVG stands for Scalable Vector Graphics
+
+Start
+
+- dasharray = perimeter
+- dashoffset = 0
+  End
+- dashoffset = perimeter
+- dashoffset= -1 \* perimeter
+
+formula
+offset = (perimeter \* timeRemaining) / totalDuration - perimeter
+
+offsetStart = p \ 30 / 30 - p
+offsetEnd = p - 0 / 30 - p
