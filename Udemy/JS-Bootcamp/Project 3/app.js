@@ -168,18 +168,7 @@ verticals.forEach((row, rowIndex) => {
     World.add(world, wall);
   });
 });
+3;
+const ball = Bodies.circle(unitLength / 2, unitLength / 2, unitLength / 4);
 
-// Goal
-const goal = Bodies.rectangle(
-  width - unitLength / 2,
-  height - unitLength / 2,
-  unitLength * 0.7,
-  unitLength * 0.7,
-  {
-    isStatic: true,
-  }
-);
-
-World.add(world, goal);
-
-// Ball
+World.add(world, ball);
