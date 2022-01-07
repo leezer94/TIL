@@ -71,3 +71,10 @@ Horizontals = [<br>
 [false,true,true]<br>
 [true,false,true]<br>
 ]
+
+### stepTroughCell
+
+- Above = Row -1 , Column
+- Right = Row, Column +1
+- Below = Row +1, Column
+- Left = Row, Column -1

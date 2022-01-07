@@ -18,7 +18,7 @@ const render = Render.create({
   element: document.body,
   engine: engine,
   options: {
-    wireframes: true,
+    wireframes: false,
     width,
     height,
   },
@@ -147,6 +147,9 @@ horizontals.forEach((row, rowIndex) => {
       {
         label: 'wall',
         isStatic: true,
+        render: {
+          fillStyle: 'red',
+        },
       }
     );
 
@@ -169,6 +172,9 @@ verticals.forEach((row, rowIndex) => {
       {
         label: 'wall',
         isStatic: true,
+        render: {
+          fillStyle: 'red',
+        },
       }
     );
     World.add(world, wall);
@@ -182,7 +188,13 @@ const goal = Bodies.rectangle(
   height - unitLengthY / 2,
   unitLengthX * 0.7,
   unitLengthY * 0.7,
-  { isStatic: true, label: 'goal' }
+  {
+    isStatic: true,
+    label: 'goal',
+    render: {
+      fillStyle: 'green',
+    },
+  }
 );
 World.add(world, goal);
 const ballRadius = Math.min(unitLengthX, unitLengthY) / 4;
@@ -219,6 +231,7 @@ Events.on(engine, 'collisionStart', (event) => {
       labels.includes(collision.bodyA.label) &&
       labels.includes(collision.bodyB.label)
     ) {
+      document.querySelector('.winner').classList.remove('hidden');
       // if trigers walls collap
       world.gravity.y = 1;
       world.bodies.forEach((body) => {
