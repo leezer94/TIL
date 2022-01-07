@@ -3,9 +3,10 @@ const { Engine, Render, Runner, World, Bodies } = Matter;
 // BoilerPlate
 
 // Constant
+const cells = 10;
 const width = 500;
 const height = 500;
-const cells = 3;
+const unitLength = width / cells;
 
 const engine = Engine.create();
 const { world } = engine;
@@ -42,6 +43,7 @@ const shuffle = (arr) => {
     const index = Math.floor(Math.random() * counter);
 
     counter--;
+
     // randomly shuffling array's index
     const temp = arr[counter];
     arr[counter] = arr[index];
@@ -57,15 +59,15 @@ const shuffle = (arr) => {
 
 const grid = Array(cells)
   .fill(null)
-  .map(() => Array(cells).fill('false'));
+  .map(() => Array(cells).fill(false));
 
 const verticals = Array(cells)
   .fill(null)
-  .map(() => Array(cells - 1).fill('false'));
+  .map(() => Array(cells - 1).fill(false));
 
 const horizontals = Array(cells - 1)
   .fill(null)
-  .map(() => Array(cells).fill('false'));
+  .map(() => Array(cells).fill(false));
 
 // Starting Point
 const startRow = Math.floor(Math.random() * cells);
@@ -73,9 +75,13 @@ const startColumn = Math.floor(Math.random() * cells);
 
 const stepThoroughCell = (row, column) => {
   // If i have visited the cell a [row,column], then return
-  if (grid[row][column] === true) return;
+  if (grid[row][column]) {
+    return;
+  }
+
   // Mark this cell as visited (true)
   grid[row][column] = true;
+
   // Assemble randomly listed order neighbors
   const neighbors = shuffle([
     [row - 1, column, 'up'],
@@ -86,7 +92,7 @@ const stepThoroughCell = (row, column) => {
 
   // forEach neighbor
 
-  for (const neighbor of neighbors) {
+  for (let neighbor of neighbors) {
     const [nextRow, nextColumn, direction] = neighbor;
 
     // See if that neigbor is out of bounce
@@ -98,12 +104,13 @@ const stepThoroughCell = (row, column) => {
     ) {
       continue;
     }
+
     // If we have visited that neighbor, continue to next neighbor
-    if (grid[nextRow][nextColumn] === true) {
+    if (grid[nextRow][nextColumn]) {
       continue;
     }
+
     // Remove a wall from either horizontals, or verticals
-    console.log(direction);
     if (direction === 'left') {
       verticals[row][column - 1] = true;
     } else if (direction === 'right') {
@@ -113,6 +120,8 @@ const stepThoroughCell = (row, column) => {
     } else if (direction === 'down') {
       horizontals[row][column] = true;
     }
+
+    stepThoroughCell(nextRow, nextColumn);
   }
 
   // Visit that next cell
@@ -120,5 +129,43 @@ const stepThoroughCell = (row, column) => {
 
 stepThoroughCell(startRow, startColumn);
 
-console.log(verticals);
-console.log(horizontals);
+horizontals.forEach((row, rowIndex) => {
+  row.forEach((open, columnIndex) => {
+    if (open) {
+      return;
+    }
+
+    const wall = Bodies.rectangle(
+      columnIndex * unitLength + unitLength / 2,
+      rowIndex * unitLength + unitLength,
+      unitLength,
+      1,
+
+      {
+        isStatic: true,
+      }
+    );
+
+    World.add(world, wall);
+  });
+});
+
+verticals.forEach((row, rowIndex) => {
+  row.forEach((open, columnIndex) => {
+    if (open) {
+      return;
+    }
+
+    const wall = Bodies.rectangle(
+      columnIndex * unitLength + unitLength,
+      rowIndex * unitLength + unitLength / 2,
+      1,
+      unitLength,
+
+      {
+        isStatic: true,
+      }
+    );
+    World.add(world, wall);
+  });
+});
