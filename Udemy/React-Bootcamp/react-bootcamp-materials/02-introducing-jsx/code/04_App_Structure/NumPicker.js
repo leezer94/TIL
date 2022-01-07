@@ -6,13 +6,14 @@ class NumPicker extends React.Component {
     const num = getNum();
     let msg;
     if (num === 7) {
-      msg =
+      msg = (
         <div>
           <h2>CONGRATS YOU WIN!</h2>
           <img src="https://i.giphy.com/media/nXxOjZrbnbRxS/giphy.webp" />
         </div>
+      );
     } else {
-      msg = <p>Sorry You Lose!</p>
+      msg = <p>Sorry You Lose!</p>;
     }
     return (
       <div>
