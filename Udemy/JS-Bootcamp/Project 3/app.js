@@ -5,6 +5,7 @@ const { Engine, Render, Runner, World, Bodies } = Matter;
 // Constant
 const width = 500;
 const height = 500;
+const cells = 5;
 
 const engine = Engine.create();
 const { world } = engine;
@@ -31,3 +32,25 @@ const walls = [
 ];
 
 World.add(world, walls);
+
+// Maze generation
+
+// creates an empty array has 3 possible places in it
+
+// Abstract Maze demensions
+
+const grid = Array(cells)
+  .fill(null)
+  .map(() => Array(cells).fill('false'));
+
+const verticals = Array(cells)
+  .fill(null)
+  .map(() => Array(cells - 1).fill('false'));
+
+const horizontals = Array(cells - 1)
+  .fill(null)
+  .map(() => Array(cells).fill('false'));
+
+console.log(grid);
+console.log(verticals);
+console.log(horizontals);

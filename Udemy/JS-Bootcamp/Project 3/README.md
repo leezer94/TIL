@@ -55,12 +55,13 @@
 
 ### Used Algorithms
 
+- 2D arrays
 - Verticals = Vertical walls
 - horizontals = Horizontal walls
 - Value of `True` inside (V or H) means There is No walls( open spaces)
 - Value of `False` inside (V or H) means There is walls( Blocked spaces)
 
-ex )
+ex ) ( these array are valued false by default and will be updated)
 Verticals = [<br>  
 [true,true,false]<br>
 [true,true,false]<br>
