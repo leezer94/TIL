@@ -44,4 +44,29 @@
 
 - A shape that we are displaying. Can be circle, rectangle, oval, etc
 
----
+## Building a MAZE
+
+- Create a grid of `cells` (each space that user can visit)
+- Pick a random starting cell
+- For that cell, build a randomly-ordered list of neighbors
+- if a neighbor has been visited before, remove it from the list
+- For each remaining neighbor, `move` to it and remove the call between those two cells
+- Repeat for this new neighbor
+
+### Used Algorithms
+
+- Verticals = Vertical walls
+- horizontals = Horizontal walls
+- Value of `True` inside (V or H) means There is No walls( open spaces)
+- Value of `False` inside (V or H) means There is walls( Blocked spaces)
+
+ex )
+Verticals = [<br>  
+[true,true,false]<br>
+[true,true,false]<br>
+]
+
+Horizontals = [<br>
+[false,true,true]<br>
+[true,false,true]<br>
+]
