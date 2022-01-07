@@ -3,12 +3,14 @@ const { Engine, Render, Runner, World, Bodies, Body } = Matter;
 // BoilerPlate
 
 // Constant
-const cells = 5;
+const cells = 20;
 const width = 500;
 const height = 500;
 const unitLength = width / cells;
 
 const engine = Engine.create();
+// disable gravity
+engine.world.gravity.y = 0;
 const { world } = engine;
 const render = Render.create({
   element: document.body,
@@ -189,15 +191,15 @@ document.addEventListener('keydown', (event) => {
   const { x, y } = ball.velocity;
 
   if (event.keyCode === 87) {
-    Body.setVelocity(ball, { x, y: y - 5 });
+    Body.setVelocity(ball, { x, y: y - 3 });
   }
   if (event.keyCode === 68) {
-    Body.setVelocity(ball, { x: x + 5, y });
+    Body.setVelocity(ball, { x: x + 3, y });
   }
   if (event.keyCode === 83) {
-    Body.setVelocity(ball, { x, y: y + 5 });
+    Body.setVelocity(ball, { x, y: y + 3 });
   }
   if (event.keyCode === 65) {
-    Body.setVelocity(ball, { x: x - 5, y });
+    Body.setVelocity(ball, { x: x - 3, y });
   }
 });
