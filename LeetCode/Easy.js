@@ -817,5 +817,51 @@
   // let aliceSizes = [2];
   // let bobSizes = [1, 3];
 
-  console.log(fairCandySwap(aliceSizes, bobSizes));
+  // console.log(fairCandySwap(aliceSizes, bobSizes));
+}
+{
+  var sortArrayByParity = function (nums) {
+    let oddNums = [];
+    let evenNums = [];
+
+    nums.filter((num) => {
+      if (num % 2 === 0) {
+        evenNums.push(num);
+      } else {
+        oddNums.push(num);
+      }
+    });
+
+    return evenNums.concat(oddNums);
+  };
+
+  let nums = [3, 1, 2, 4];
+  // let nums = [0];
+
+  // console.log(sortArrayByParity(nums));
+}
+{
+  var sortArrayByParityII = function (nums) {
+    let oddNums = [];
+    let evenNums = [];
+    let result = [];
+
+    nums.filter((num) => {
+      if (num % 2 === 0) {
+        evenNums.push(num);
+      } else {
+        oddNums.push(num);
+      }
+    });
+
+    for (let i = 0; i < nums.length / 2; i++) {
+      result.push(evenNums[i], oddNums[i]);
+    }
+
+    return result;
+  };
+  let nums = [4, 2, 5, 7];
+  // let nums = [2,3]
+
+  console.log(sortArrayByParityII(nums));
 }
