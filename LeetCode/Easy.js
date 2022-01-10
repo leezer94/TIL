@@ -899,5 +899,52 @@
   };
   let nums = [2, 1, 2];
 
-  console.log(largestPerimeter(nums));
+  // console.log(largestPerimeter(nums));
+}
+{
+  var sortedSquares = function (nums) {
+    let result = [];
+
+    for (const num of nums) {
+      result.push(Math.floor(Math.pow(num, 2)));
+    }
+
+    return result.sort((a, b) => a - b);
+  };
+  let nums = [-4, -1, 0, 3, 10];
+  // let nums = [-7, -3, 2, 3, 11];
+
+  // console.log(sortedSquares(nums));
+}
+{
+  var largestSumAfterKNegations = function (nums, k) {
+    nums = nums.sort((a, b) => b - a);
+    let poped = [];
+
+    for (let i = 0; i < k; i++) {
+      poped.push(nums.pop());
+    }
+
+    console.log(poped);
+    for (let i = 0; i < poped.length; i++) {
+      if (poped[i] === 0) {
+        poped[i + 1] *= -1;
+      }
+      poped[i] *= -1;
+    }
+    const result = nums.concat(poped);
+    console.log(result);
+
+    return result.reduce((a, b) => a + b);
+  };
+  // let nums = [4, 2, 3]; // 5
+  // let k = 1;
+  // let nums = [3, -1, 0, 2]; // 6
+  // // let k = 3;
+  // let nums = [2, -3, -1, 5, -4]; // 13
+  // let k = 2;
+  let nums = [-2, 5, 0, 2, -2];
+  let k = 3;
+
+  console.log(largestSumAfterKNegations(nums, k));
 }
