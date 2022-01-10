@@ -863,5 +863,41 @@
   let nums = [4, 2, 5, 7];
   // let nums = [2,3]
 
-  console.log(sortArrayByParityII(nums));
+  // console.log(sortArrayByParityII(nums));
+}
+{
+  var largestPerimeter = function (nums) {
+    const hash = {};
+    let newArr = [];
+    let num;
+
+    for (const num of nums) {
+      if (!hash[num]) {
+        hash[num] = 1;
+      } else {
+        hash[num]++;
+      }
+    }
+
+    for (const key in hash) {
+      if (hash[key] === 2) {
+        num = key;
+      } else {
+        newArr.push(parseInt(key));
+      }
+    }
+    const max = Math.max(...newArr);
+    const min = Math.min(...newArr);
+
+    if (max < num * 2) {
+      return num * 2 + parseInt(max);
+    } else if (min < num * 2) {
+      return num * 2 + parseInt(min);
+    } else {
+      return 0;
+    }
+  };
+  let nums = [2, 1, 2];
+
+  console.log(largestPerimeter(nums));
 }
