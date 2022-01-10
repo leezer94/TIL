@@ -20,3 +20,10 @@ Groups of 6 Characters : 011100 || 110110 || 010101 || 100011
 Convert Each group 6 into a character : c || 2 || V || j
 
 result : c2Vj
+
+##
+
+Domain : message.com
+Path : /index.html/
+Query String : ?color = red
+#value : Hash/fragment
