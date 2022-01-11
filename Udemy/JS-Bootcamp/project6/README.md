@@ -12,6 +12,8 @@
 
 - Create a 'start' script to run our project
 
+---
+
 ### npm dependencies
 
 #### express
@@ -38,3 +40,38 @@
                ........
 
 6.  All chunk sent! Request complete!
+
+---
+
+### Middelware in Express
+
+- Function that does some pre-processing on the 'req', 'res' object
+- Primary means of code reuse in Express
+
+---
+
+### Data Modeling Approach
+
+Repository Approach
+
+- A single class (repository) is responsible for data access.
+- All records are stored and used as plain JS objects
+
+Active Record Approach
+
+- Every record is an instance of a 'model' class that has methods to save, update, delete this record.
+
+### User Repository
+
+|  Method  | Input Arguments | Return Value |                          Description                          |
+| :------: | :-------------: | :----------: | :-----------------------------------------------------------: |
+|  getAll  |        -        |    [user]    |                     Gets a list of users                      |
+|  getOne  |       id        |     user     |               Finds the user with the given id                |
+| getOneBy |     filters     |     user     |             Finds one user with the given filters             |
+|  create  |   attributes    |     null     |           Creates a user with the given attributes            |
+|  update  | id, attributes  |     null     | Updates the user with the giben id using the given attributes |
+|  delete  |       id        |     null     |               Delete the user with the given id               |
+| randomID |        -        |      ID      |                     Generates a random id                     |
+| writeAll |        -        |     null     |             Writes all users to a users.json file             |
+
+- Products Repository
