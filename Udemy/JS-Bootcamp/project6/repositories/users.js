@@ -1,6 +1,5 @@
 const fs = require('fs');
 const crypto = require('crypto');
-const { throws } = require('assert');
 
 class UsersRepository {
   constructor(filename) {
@@ -104,17 +103,22 @@ class UsersRepository {
   }
 }
 
-const test = async () => {
-  const repo = new UsersRepository('users.json');
+// const test = async () => {
+//   const repo = new UsersRepository('users.json');
 
-  // we are using hashMap so the order of record dosent matter
-  const user = await repo.getOneBy({
-    password: 'password',
-    email: '2kunhee94@gmail.com',
-    id: 'b211c8ed5',
-  });
+//   // we are using hashMap so the order of record dosent matter
+//   const user = await repo.getOneBy({
+//     password: 'password',
+//     email: '2kunhee94@gmail.com',
+//     id: 'b211c8ed5',
+//   });
 
-  console.log(user);
-};
+//   console.log(user);
+// };
 
-test();
+// test();
+
+// Rather
+//  module.exprots = UsersRepository;
+// instead
+module.exports = new UsersRepository('users.json');
