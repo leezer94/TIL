@@ -75,3 +75,5 @@ Active Record Approach
 | writeAll |        -        |     null     |             Writes all users to a users.json file             |
 
 - Products Repository
+
+## Rather than exporting the entire class of users repository instead export an instance
