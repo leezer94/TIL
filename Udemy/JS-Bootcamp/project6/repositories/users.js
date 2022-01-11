@@ -1,5 +1,6 @@
 const fs = require('fs');
 const crypto = require('crypto');
+const { throws } = require('assert');
 
 class UsersRepository {
   constructor(filename) {
@@ -80,11 +81,40 @@ class UsersRepository {
 
     await this.writeAll(records);
   }
+
+  async getOneBy(filters) {
+    const records = await this.getAll();
+
+    // iterating through array
+    for (const record of records) {
+      let found = true;
+
+      // iterating through object
+      for (const key in filters) {
+        if (record[key] !== filters[key]) {
+          found = false;
+          return 'User not found';
+        }
+      }
+
+      if (found) {
+        return record;
+      }
+    }
+  }
 }
 
 const test = async () => {
   const repo = new UsersRepository('users.json');
-  await repo.update('dasdase', { password: 'password' });
+
+  // we are using hashMap so the order of record dosent matter
+  const user = await repo.getOneBy({
+    password: 'password',
+    email: '2kunhee94@gmail.com',
+    id: 'b211c8ed5',
+  });
+
+  console.log(user);
 };
 
 test();
