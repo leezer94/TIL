@@ -84,5 +84,5 @@
   // let height = [4, 3, 2, 1, 4];
   let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
   // let height = [1, 2, 1];
-  console.log(maxArea(height));
+  // console.log(maxArea(height));
 }
