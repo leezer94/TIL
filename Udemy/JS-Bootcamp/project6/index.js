@@ -1,15 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
 const usersRepo = require('./repositories/users');
 
 const app = express();
 
 // Automatically body-parse by using Library
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    // to prevent from someone who is faking me and to encrypt all the infos that is store inside the cookie
+    keys: ['2kunhee94'],
+  })
+);
 
 app.get('/', (req, res) => {
   res.send(`
   <div>
+  Your id is : ${req.session.userId}
       <form method="POST">
         <input name="email" placeholder="email" />
         <input name="password" placeholder="password" />
@@ -32,6 +40,13 @@ app.post('/', async (req, res) => {
   if (password !== passwordConfirmation) {
     return res.send('Password must match');
   }
+  // Create a user in out user repository to represent this person
+
+  const user = await usersRepo.create({ email, password });
+
+  // Store the id of that user inside the users cookie by using 3rd party package ( fot security reason)
+  req.session.userId = user.id;
+
   // get acces to eamil.password, confirmation
   res.send('Account created!!');
 });
