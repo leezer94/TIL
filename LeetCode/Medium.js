@@ -62,3 +62,27 @@
   let s = 'abcabcbb';
   // console.log(lengthOfLongestSubstring(s));
 }
+{
+  //11. Container With Most Water
+  var maxArea = function (height) {
+    let left = 0,
+      right = height.length - 1,
+      maxArea = 0;
+    while (left < right) {
+      let width = right - left;
+      if (height[left] > height[right]) {
+        maxArea = Math.max(maxArea, width * height[right]);
+        right--;
+      } else {
+        maxArea = Math.max(maxArea, width * height[left]);
+        left++;
+      }
+    }
+    return maxArea;
+  };
+
+  // let height = [4, 3, 2, 1, 4];
+  let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+  // let height = [1, 2, 1];
+  console.log(maxArea(height));
+}
