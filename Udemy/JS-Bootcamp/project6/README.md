@@ -77,3 +77,23 @@ Active Record Approach
 - Products Repository
 
 ## Rather than exporting the entire class of users repository instead export an instance
+
+## Cookie based Athentication
+
+- for every domain you visit , you are going to have a different set of cookies
+
+## Hashing Algorithm ( sha256 online hashing password)
+
+`Password` => `Hasing algorithm` => `encrypted value (dsfjdskdsl76da76s76easd76s)`
+
+- We stored the `hashed output` instead of actuall `Password`
+
+- when user looging in comaper `hashed output` to `hashed input`
+
+### Rainbow table attack
+
+- A rainbow table attack is a password cracking method that uses a special table (a “rainbow table”) to crack the password hashes in a database. ... After the user enters their password to login, it is converted to hashes, and the result is compared with the stored hashes on the server to look for a match.
+
+### Salting + Hashing Password
+
+- Password Salting is a technique used to help protect passwords stored in a database from being reverse-engineered by hackers who might breach the environment. Password salting involves adding a string of between 32 or more characters to a password and then hashing it.
