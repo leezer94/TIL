@@ -97,3 +97,12 @@ Active Record Approach
 ### Salting + Hashing Password
 
 - Password Salting is a technique used to help protect passwords stored in a database from being reverse-engineered by hackers who might breach the environment. Password salting involves adding a string of between 32 or more characters to a password and then hashing it.
+
+## Project Structure
+
+### Project Directories
+
+<figure>
+    <img src="images/Screen Shot 2022-01-12 at 1.24.28 PM.png">
+    <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
+</figure>

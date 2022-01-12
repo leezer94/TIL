@@ -43,7 +43,24 @@ class UsersRepository {
 
     await this.writeAll(records);
 
-    return attrs;
+    return record;
+  }
+
+  async comparePasswords(saved, supplied) {
+    // Saved => password saved in our database. = 'hashed.salt'
+    // Supplied => password given to us by a user trying to sign in
+
+    // const result = saved.split('.');
+    // const hased = result[0];
+    // const salt = result[1];
+    console.log(saved);
+
+    const [hashed, salt] = saved.split('.');
+    console.log(salt);
+
+    const hashedSuppliedBuf = await scrypt(supplied, salt, 64);
+
+    return hashed === hashedSuppliedBuf.toString('hex');
   }
 
   async writeAll(records) {
@@ -64,7 +81,6 @@ class UsersRepository {
   async getOne(id) {
     const records = await this.getAll();
 
-    //
     return records.find((record) => record.id === id);
   }
 
