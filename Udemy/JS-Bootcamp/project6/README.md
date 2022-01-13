@@ -103,6 +103,13 @@ Active Record Approach
 ### Project Directories
 
 <figure>
-    <img src="images/Screen Shot 2022-01-12 at 1.24.28 PM.png">
+    <img src="images/project-directories.png">
+    <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
+</figure>
+
+### HTML templating Libraries
+
+<figure>
+    <img src="images/templating-libraries.png">
     <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
 </figure>
