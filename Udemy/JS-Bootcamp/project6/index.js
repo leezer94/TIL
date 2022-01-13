@@ -5,6 +5,8 @@ const authRouter = require('./routes/admin/auth');
 
 const app = express();
 
+// this make everthin inside of there available outside of the world
+app.use(express.static('public'));
 // Automatically body-parse by using Library
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
