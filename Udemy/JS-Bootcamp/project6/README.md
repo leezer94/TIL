@@ -69,7 +69,7 @@ Active Record Approach
 |  getOne  |       id        |     user     |               Finds the user with the given id                |
 | getOneBy |     filters     |     user     |             Finds one user with the given filters             |
 |  create  |   attributes    |     null     |           Creates a user with the given attributes            |
-|  update  | id, attributes  |     null     | Updates the user with the giben id using the given attributes |
+|  update  | id, attributes  |     null     | Updates the user with the given id using the given attributes |
 |  delete  |       id        |     null     |               Delete the user with the given id               |
 | randomID |        -        |      ID      |                     Generates a random id                     |
 | writeAll |        -        |     null     |             Writes all users to a users.json file             |
@@ -113,3 +113,18 @@ Active Record Approach
     <img src="images/templating-libraries.png">
     <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
 </figure>
+
+---
+
+### Prodicts Repository
+
+|  Method  | Input Arguments | Return Value |                           Description                            |
+| :------: | :-------------: | :----------: | :--------------------------------------------------------------: |
+|  getAll  |        -        |  [product]   |                     Gets a list of products                      |
+|  getOne  |       id        |   product    |               Finds the product with the given id                |
+| getOneBy |     filters     |   product    |             Finds one product with the given filters             |
+|  create  |   attributes    |     null     |           Creates a product with the given attributes            |
+|  update  | id, attributes  |     null     | Updates the product with the given id using the given attributes |
+|  delete  |       id        |     null     |               Delete the product with the given id               |
+| randomID |        -        |      ID      |                      Generates a random id                       |
+| writeAll |    [product]    |     null     |             Writes all users to a products.json file             |
