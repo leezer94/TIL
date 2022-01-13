@@ -1,32 +1,11 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const util = require('util');
+const Repository = require('./repository');
 
 const scrypt = util.promisify(crypto.scrypt);
 
-class UsersRepository {
-  constructor(filename) {
-    if (!filename) {
-      throw new Error('Creating a repository requires a filename');
-    }
-
-    this.filename = filename;
-    try {
-      fs.accessSync(this.filename);
-    } catch (err) {
-      fs.writeFileSync(this.filename, '[]');
-    }
-  }
-
-  async getAll() {
-    // Open the file called the.filename
-    return JSON.parse(
-      await fs.promises.readFile(this.filename, {
-        encoding: 'utf8',
-      })
-    );
-  }
-
+class UsersRepository extends Repository {
   async create(attrs) {
     // {email : 'ddd@fasf.com' , password : 'password'}
     attrs.id = this.randomId();
@@ -60,71 +39,6 @@ class UsersRepository {
     const hashedSuppliedBuf = await scrypt(supplied, salt, 64);
 
     return hashed === hashedSuppliedBuf.toString('hex');
-  }
-
-  async writeAll(records) {
-    // write the updated 'records' array back to this.filename
-
-    await fs.promises.writeFile(
-      this.filename,
-      // custom format value of null
-      // 2 : level of indentation
-      JSON.stringify(records, null, 2)
-    );
-  }
-
-  randomId() {
-    return crypto.randomBytes(4).toString('hex');
-  }
-
-  async getOne(id) {
-    const records = await this.getAll();
-
-    return records.find((record) => record.id === id);
-  }
-
-  async delete(id) {
-    const records = await this.getAll();
-
-    const filteredRecords = records.filter((record) => record.id !== id);
-
-    await this.writeAll(filteredRecords);
-  }
-
-  async update(id, attrs) {
-    const records = await this.getAll();
-    const record = records.find((record) => record.id === id);
-
-    if (!record) {
-      throw Error(`Record with id ${id} not found`);
-    }
-
-    // record === { email : 'test@test.com}
-    // attrs === {password : 'mypassword}
-    Object.assign(record, attrs);
-    // record === {email : 'test@test.com, password : 'mypassword}
-
-    await this.writeAll(records);
-  }
-
-  async getOneBy(filters) {
-    const records = await this.getAll();
-
-    // iterating through array
-    for (let record of records) {
-      let found = true;
-
-      // iterating through object
-      for (let key in filters) {
-        if (record[key] !== filters[key]) {
-          found = false;
-        }
-      }
-
-      if (found) {
-        return record;
-      }
-    }
   }
 }
 
