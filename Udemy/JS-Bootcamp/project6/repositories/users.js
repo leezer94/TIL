@@ -11,7 +11,6 @@ class UsersRepository {
     }
 
     this.filename = filename;
-
     try {
       fs.accessSync(this.filename);
     } catch (err) {
@@ -112,14 +111,13 @@ class UsersRepository {
     const records = await this.getAll();
 
     // iterating through array
-    for (const record of records) {
+    for (let record of records) {
       let found = true;
 
       // iterating through object
-      for (const key in filters) {
+      for (let key in filters) {
         if (record[key] !== filters[key]) {
           found = false;
-          return 'User not found';
         }
       }
 
