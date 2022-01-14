@@ -78,5 +78,82 @@
 
   let k = 3;
 
-  console.log(rotate(nums, k));
+  // console.log(rotate(nums, k));
+}
+{
+  // 283. Move Zeroes
+  var moveZeroes = function (nums) {
+    for (let i = nums.length - 1; i >= 0; i--) {
+      if (nums[i] === 0) {
+        nums.push(0);
+        nums.splice(i, 1);
+      }
+    }
+    return nums;
+  };
+
+  // let nums = [0, 1, 0, 3, 12];
+  // let nums = [2, 1];
+  // let nums = [0];
+  let nums = [4, 2, 4, 0, 0, 3, 0, 5, 1, 0];
+
+  // console.log(moveZeroes(nums));
+}
+{
+  var twoSum = function (nums, target) {
+    let hash = [];
+    for (let i = 0; i < nums.length; i++) {
+      const n = target - nums[i];
+      if (hash[n] !== undefined) {
+        return [hash[n] + 1, i + 1];
+      }
+      hash[nums[i]] = i;
+    }
+    return [];
+  };
+
+  // let nums = [2, 7, 11, 15]; // [1,2]
+  // let target = 9;
+  // let nums = [2, 3, 4]; // [1,3]
+  // let target = 6;
+  // let nums = [-1, 0]; // [1,2]
+  // let target = -1;
+  let nums = [1, 3, 5, 6, 7, 8, 9, 10];
+  let target = 13;
+
+  // console.log(twoSum(nums, target));
+}
+{
+  // 344. Reverse String
+  var reverseString = function (s) {
+    let left = 0;
+    let right = s.length - 1;
+
+    while (left < right) {
+      let leftOne = s[left];
+      s[left] = s[right];
+      s[right] = leftOne;
+      left++;
+      right--;
+    }
+
+    return s;
+  };
+
+  let s = ['h', 'e', 'l', 'l', 'o'];
+  // console.log(reverseString(s));
+}
+{
+  // 557. Reverse Words in a String III
+  var reverseWords = function (s) {
+    s = s.split(' ');
+    for (let i = 0; i < s.length; i++) {
+      s[i] = s[i].split('').reverse().join('');
+    }
+    return s.join(' ');
+  };
+
+  let s = "Let's take LeetCode contest";
+
+  console.log(reverseWords(s));
 }

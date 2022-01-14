@@ -948,3 +948,16 @@
 
   // console.log(largestSumAfterKNegations(nums, k));
 }
+{
+  // 409. Longest Palindrome
+
+  var longestPalindrome = function (s) {};
+
+  // let s = 'abccccdd';
+  let s = 'ababababa';
+  // let s = 'a';
+  // let s = 'bb';
+  // let s = 'ccc';
+  // let s = 'bananas';
+  // console.log(longestPalindrome(s));
+}
