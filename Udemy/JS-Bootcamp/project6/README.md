@@ -128,3 +128,32 @@ Active Record Approach
 |  delete  |       id        |     null     |               Delete the product with the given id               |
 | randomID |        -        |      ID      |                      Generates a random id                       |
 | writeAll |    [product]    |     null     |             Writes all users to a products.json file             |
+
+---
+
+## Uploading Images
+
+### 4 different methods
+
+#### Co-Located Disk (bad Approcahes )
+
+- not a long term solution
+
+- It doesnt work in the long term if you ever expect to scale or grow your application
+
+#### Database ( not good Approach )
+
+- cost of doing this is expensive
+
+#### Stram Through to Datastroe ( OK Approach)
+
+- Outside Data Store for Files
+
+- ex ) Amazon S3, Digital Ocean Spaces, google Cloud Storage....
+
+#### Presigned URL ( Best Approcah // Complecate)
+
+- It doesnt send it to the server
+- if user wants to upload images server send it back over to the browser and called `Presigned URL`
+- Directly over to the `Outside Data Storage`
+- Not involving server at all
