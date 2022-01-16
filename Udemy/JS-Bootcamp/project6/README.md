@@ -151,7 +151,7 @@ Active Record Approach
 
 - ex ) Amazon S3, Digital Ocean Spaces, google Cloud Storage....
 
-#### Presigned URL ( Best Approcah // Complecate)
+#### <strong>Presigned URL ( Best Approcah // Complecate)<strong>
 
 - It doesnt send it to the server
 - if user wants to upload images server send it back over to the browser and called `Presigned URL`
