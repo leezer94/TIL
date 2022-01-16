@@ -961,3 +961,72 @@
   // let s = 'bananas';
   // console.log(longestPalindrome(s));
 }
+{
+  // 605. Can Place Flowers
+  var canPlaceFlowers = function (flowerbed, n) {
+    let numOne = flowerbed.filter((num) => num === 1).length;
+    let numZero = flowerbed.filter((num) => num === 0).length;
+    let empty = numZero - numOne;
+
+    console.log(empty, n);
+
+    return empty < n ? false : true;
+  };
+
+  // let flowerbed = [1, 0, 0, 0, 1]; // true
+  // let n = 1;
+  // let flowerbed = [1, 0, 0, 0, 1]; // false
+  // let n = 2;
+  // let flowerbed = [1, 0, 1, 0, 1, 0, 1]; // false
+  // let n = 1;
+  let flowerbed = [1, 0, 0, 0, 0, 1]; // false
+  let n = 2;
+
+  // console.log(canPlaceFlowers(flowerbed, n));
+}
+{
+  // 441. Arranging Coins
+
+  var arrangeCoins = function (n) {
+    let count = 1;
+    let staircase = [1];
+    if (n === 1) return n;
+    for (let i = 0; i < n; i++) {
+      count += 1;
+      staircase.push(count);
+    }
+
+    for (let i = 0; i < staircase.length; i++) {
+      const sliced = staircase.slice(0, i);
+      for (let j = 0; j < sliced.length; j++) {
+        const sum = sliced.reduce((a, b) => a + b);
+        if (sum > n) {
+          return i - 1;
+        }
+      }
+    }
+  };
+
+  let n = 100;
+  // console.log(arrangeCoins(n));
+}
+{
+  // 27. Remove Element
+  var removeElement = function (nums, val) {
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] === val) {
+        nums.splice(i, 1);
+        i--;
+      }
+    }
+
+    return nums.length;
+  };
+
+  let nums = [0, 1, 2, 2, 3, 0, 4, 2]; // 5, nums = [0,1,4,0,3,_,_,_]
+  let val = 2;
+  // let nums = [3, 2, 2, 3]; // [2,2,_,_]
+  // let val = 3;
+
+  console.log(removeElement(nums, val));
+}
