@@ -21,7 +21,22 @@ router.post('/cart/products', async (req, res) => {
     cart = await cartsRepo.getOne(req.session.cartId);
   }
 
-  console.log(cart);
+  const existingItems = cart.items.find(
+    (item) => item.id === req.body.productId
+  );
+
+  if (existingItems) {
+    //increment quantity and save cart
+    existingItems.quantity++;
+  } else {
+    // add new product id to items array
+    cart.items.push({ id: req.body.productId, quantity: 1 });
+  }
+
+  await cartsRepo.update(cart.id, {
+    items: cart.items,
+  });
+  console.log(existingItems);
 
   // Either increment quantity for existing product
   // OR add new product items array
