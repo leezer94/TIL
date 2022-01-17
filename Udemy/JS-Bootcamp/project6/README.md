@@ -103,14 +103,14 @@ Active Record Approach
 ### Project Directories
 
 <figure>
-    <img src="images/project-directories.png">
+    <img src="public/images/project-directories.png">
     <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
 </figure>
 
 ### HTML templating Libraries
 
 <figure>
-    <img src="images/templating-libraries.png">
+    <img src="public/images/templating-libraries.png">
     <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
 </figure>
 
@@ -157,3 +157,59 @@ Active Record Approach
 - if user wants to upload images server send it back over to the browser and called `Presigned URL`
 - Directly over to the `Outside Data Storage`
 - Not involving server at all
+
+---
+
+## Shopping cart
+
+---
+
+### Problem #1
+
+- How do we tie a cart to a person who will never be logged in ?
+
+  <figure>
+  <img src="public/images/problem1.png">
+  <caption>ref
+  </figure>
+
+  - Add product with ID 123 to my cart
+  - Logic to store all the different active shopping carts + products in them
+  - Product added to cart. By the way, please store Cart ID 987 in your Cookie, so i know which cart is yours
+
+---
+
+### Problem #2
+
+- Even if we can identify who is trying to add an item to a cart, how do we tie a product to a cart ?
+
+#### 3 Solutions
+
+- Bad Approcach 1
+  <figure>
+  <img src="public/images/badApproach1.png">
+  <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
+  </figure>
+
+  - Any time we want to ask about what products belong to what users we have to iterate through out entire list of products
+
+  - Polluting the definition of exaxtly what a product is ( which means it contains too many informations)
+
+- Bad Approach 2
+  <figure>
+  <img src="public/images/badApproach2.png">
+  <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
+  </figure>
+
+  - create new repository
+  - we are basically copying products definition and storing it inside a carts repository
+  - if admin updates details of product it might not updates cart repository detail at the same time ( expensive operation)
+
+- Good Approach
+  <figure>
+   <img src="public/images/goodApproach.png">
+   <caption>ref : Udemy Colt Steele JS Bootcamp</caption>
+   </figure>
+
+  - Instead of storing the entire product inside this Carts Repository we are going to instead only stroe the id of the product
+  - we can easily make updates
