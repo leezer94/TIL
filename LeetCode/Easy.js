@@ -1028,5 +1028,41 @@
   // let nums = [3, 2, 2, 3]; // [2,2,_,_]
   // let val = 3;
 
-  console.log(removeElement(nums, val));
+  // console.log(removeElement(nums, val));
+}
+{
+  // 2103. Rings and Rods
+  var countPoints = function (rings) {
+    let red = new Array(10).fill(0);
+    let green = new Array(10).fill(0);
+    let blue = new Array(10).fill(0);
+    let count = 0;
+
+    for (let i = 0; i < rings.length; i += 2) {
+      let a = Number(rings[i + 1]);
+
+      if (rings[i] === 'R') {
+        red[a]++;
+      }
+      if (rings[i] === 'G') {
+        green[a]++;
+      }
+      if (rings[i] === 'B') {
+        blue[a]++;
+      }
+    }
+
+    for (let i = 0; i < 10; i++) {
+      if (red[i] !== 0 && green[i] !== 0 && blue[i] !== 0) {
+        count++;
+      }
+    }
+
+    return count;
+  };
+
+  // let rings = 'B0R0G0R9R0B0G0'; // 1
+  let rings = 'B0B6G0R6R0R6G6'; // 2
+
+  console.log(countPoints(rings));
 }

@@ -155,5 +155,5 @@
 
   let s = "Let's take LeetCode contest";
 
-  console.log(reverseWords(s));
+  // console.log(reverseWords(s));
 }
