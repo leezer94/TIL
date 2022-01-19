@@ -1,4 +1,6 @@
-it('Shows an autocomplete', () => {
+beforeEach(() => {
+  document.querySelector('#target').innerHTML = '';
+
   createAutoComplete({
     root: document.querySelector('#target'),
     // give fake data to reduce testing time
@@ -14,8 +16,21 @@ it('Shows an autocomplete', () => {
       return movie.Title;
     },
   });
+});
 
+it('Dropdown starts closed', () => {
   const dropDown = document.querySelector('.dropdown');
 
   expect(dropDown.className).not.to.include('is-active');
+});
+
+it('After searching, dropdown opens up', () => {
+  const input = document.querySelector('input');
+
+  input.value = 'Avengers';
+  input.dispatchEvent(new Event('input'));
+
+  const dropDown = document.querySelector('.dropdown');
+
+  expect(dropDown.className).to.include('is-active');
 });
