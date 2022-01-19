@@ -24,3 +24,4 @@
 
 - change `test` to `it`
 - otherwise all the same codes
+- make mocha to work in the browser
