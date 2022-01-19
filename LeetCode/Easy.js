@@ -1032,15 +1032,19 @@
 }
 {
   // 2103. Rings and Rods
-  var countPoints = function (rings) {
+  const countPoints = function (rings) {
+    //  make an virtual rods for each colors
     let red = new Array(10).fill(0);
     let green = new Array(10).fill(0);
     let blue = new Array(10).fill(0);
     let count = 0;
 
+    // Looping thorugh rods
     for (let i = 0; i < rings.length; i += 2) {
+      // make String to Number
       let a = Number(rings[i + 1]);
 
+      // if the colors match add 1 to the rods
       if (rings[i] === 'R') {
         red[a]++;
       }
@@ -1052,7 +1056,9 @@
       }
     }
 
+    // looping through numbers of rods ( 0 ~ 9)
     for (let i = 0; i < 10; i++) {
+      // if there are all colors placed onto the rods then add 1 to count
       if (red[i] !== 0 && green[i] !== 0 && blue[i] !== 0) {
         count++;
       }
