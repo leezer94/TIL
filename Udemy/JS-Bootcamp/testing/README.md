@@ -14,3 +14,13 @@
 4.  Take a look at a previous project we built in this course
 5.  Test it using a testing lib
 6.  Write out own testing framework that will work in about 80% of all projects
+
+### Using node modue `assert`
+
+- assert.strictEqual(actual, expected[, message])
+- assert.deepStrictEqual(actual, expected[, message])
+
+### Mocha JS
+
+- change `test` to `it`
+- otherwise all the same codes
