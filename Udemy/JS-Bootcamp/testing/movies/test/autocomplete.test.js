@@ -1,15 +1,33 @@
+const waitFor = (selector) => {
+  return new Promise((resolve, reject) => {
+    // run the function intervally
+    //  we have to stop the interval at some point
+    const interval = setInterval(() => {
+      if (document.querySelector(selector)) {
+        clearInterval(interval);
+        clearTimeout(timeout);
+        resolve();
+      }
+    }, 30);
+
+    // run the function once
+
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+      reject();
+    }, 2000);
+  });
+};
+
 beforeEach(() => {
   document.querySelector('#target').innerHTML = '';
-
   createAutoComplete({
     root: document.querySelector('#target'),
-    // give fake data to reduce testing time
-    // incase we have to purchase api and so on
     fetchData() {
       return [
         { Title: 'Avengers' },
-        { Title: 'Nor Avengers' },
-        { Title: 'Some Other Movie' },
+        { Title: 'Not Avengers' },
+        { Title: 'Some other movie' },
       ];
     },
     renderOption(movie) {
@@ -19,18 +37,18 @@ beforeEach(() => {
 });
 
 it('Dropdown starts closed', () => {
-  const dropDown = document.querySelector('.dropdown');
+  const dropdown = document.querySelector('.dropdown');
 
-  expect(dropDown.className).not.to.include('is-active');
+  expect(dropdown.className).not.to.include('is-active');
 });
 
-it('After searching, dropdown opens up', () => {
+it('After searching, dropdown opens up', async () => {
   const input = document.querySelector('input');
-
-  input.value = 'Avengers';
+  input.value = 'avengers';
   input.dispatchEvent(new Event('input'));
 
-  const dropDown = document.querySelector('.dropdown');
+  await waitFor('.dropdown-item');
 
-  expect(dropDown.className).to.include('is-active');
+  const dropdown = document.querySelector('.dropdown');
+  expect(dropdown.className).to.include('is-active');
 });
