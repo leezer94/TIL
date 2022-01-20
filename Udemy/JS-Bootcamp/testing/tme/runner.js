@@ -8,6 +8,17 @@ class Runner {
 
   async runTest() {
     for (let file of this.testFiles) {
+      const beforeEaches = [];
+      global.beforeEach = (fn) => {
+        beforeEaches.push(fn);
+      };
+
+      // if node finds 'it' node will automatically run this function
+      global.it = (desc, fn) => {
+        beforeEaches.forEach((func) => func());
+
+        fn();
+      };
       // node is going to find a file and excute
       require(file.name);
     }
