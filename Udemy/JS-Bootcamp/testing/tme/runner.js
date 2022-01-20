@@ -6,6 +6,13 @@ class Runner {
     this.testFiles = [];
   }
 
+  async runTest() {
+    for (let file of this.testFiles) {
+      // node is going to find a file and excute
+      require(file.name);
+    }
+  }
+
   // this look for the test files by iterating files
   async collecFiles(targetPath) {
     const files = await fs.promises.readdir(targetPath);
