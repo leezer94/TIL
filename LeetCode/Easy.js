@@ -1070,5 +1070,45 @@
   // let rings = 'B0R0G0R9R0B0G0'; // 1
   let rings = 'B0B6G0R6R0R6G6'; // 2
 
-  console.log(countPoints(rings));
+  // console.log(countPoints(rings));
+}
+{
+  // 875. Koko Eating Bananas
+  const minEatingSpeed = function (piles, h) {
+    const canEatAll = (speed) => {
+      let time = 0;
+      for (let pile of piles) {
+        time += Math.ceil(pile / speed);
+      }
+      console.log(`time: ${time}, hour : ${h}`);
+      return time <= h ? true : false;
+    };
+
+    let min = 0;
+    let max = Math.max(...piles);
+
+    while (min < max) {
+      const middle = Math.floor(min + max) / 2;
+
+      console.log(`bool : ${canEatAll(middle)}`);
+      if (canEatAll(middle)) {
+        max = middle;
+        console.log(`max : ${max}`);
+      } else {
+        min += 1;
+        console.log(`min : ${min}`);
+      }
+    }
+
+    return min;
+  };
+
+  let piles = [3, 6, 7, 11]; // 4
+  let h = 8;
+  // let piles = [30, 11, 23, 4, 20]; // 30
+  // let h = 5;
+  // let piles = [30, 11, 23, 4, 20]; // 23
+  // let h = 6;
+
+  console.log(minEatingSpeed(piles, h));
 }
