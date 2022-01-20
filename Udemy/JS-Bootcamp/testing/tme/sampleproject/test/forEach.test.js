@@ -20,10 +20,8 @@ it('should sum an array', () => {
   numbers.push(4);
   numbers.push(5);
   numbers.push(6);
-
-  console.log(numbers.length);
 });
 
 it('beforeEach is ran each time', () => {
-  assert.strictEqual(numbers.length, 3);
+  assert.strictEqual(numbers.length, 4);
 });
