@@ -17,10 +17,23 @@ class Runner {
       global.it = (desc, fn) => {
         beforeEaches.forEach((func) => func());
 
-        fn();
+        try {
+          fn();
+          // if test is passed this console will run
+          console.log(`Pass - ${desc}`);
+        } catch (err) {
+          console.log(`Fail - ${desc}`);
+          // '\t' this gives indent in a message
+          console.log('\t', err.message);
+        }
       };
-      // node is going to find a file and excute
-      require(file.name);
+
+      try {
+        // node is going to find a file and excute
+        require(file.name);
+      } catch (err) {
+        console.log(err.message);
+      }
     }
   }
 
