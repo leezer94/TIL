@@ -157,3 +157,23 @@
 
   // console.log(reverseWords(s));
 }
+{
+  // 77. Combinations
+  const combine = function (n, k) {
+    let result = [];
+
+    for (let i = 1; i <= n; i++) {
+      while (i <= k) {
+        result.push([i]);
+        i++;
+      }
+    }
+
+    return result;
+  };
+
+  let n = 1;
+  let k = 1;
+
+  console.log(combine(n, k));
+}

@@ -1110,5 +1110,5 @@
   // let piles = [30, 11, 23, 4, 20]; // 23
   // let h = 6;
 
-  console.log(minEatingSpeed(piles, h));
+  // console.log(minEatingSpeed(piles, h));
 }
