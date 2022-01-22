@@ -92,3 +92,10 @@ https://www.npmjs.com/package/jsdom
 <img src="tme/images/jsdom.png" "/>
 <caption>How JSDom works</caption>
 </figure>
+
+### TIME Flow Diagram
+
+<figure>
+<img src="tme/images/timeflow.png" "/>
+<caption>Time Flow Diagram</caption>
+</figure>
