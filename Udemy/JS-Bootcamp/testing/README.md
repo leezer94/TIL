@@ -65,3 +65,30 @@
 - find childrens from each node
 - add them into the same array
 - iterates over till there is no more child nodes
+
+---
+
+## Mocha in the Browser
+
+### CreateAutoComplete
+
+- We had function to run as many times as we wanted
+- We could create a new autocomplete for each test
+- Direct handle onto the function we want to test
+
+### Email Validation
+
+- From logic executes instantly with 'index.js' being loaded
+- No easy ability to bind to a second form
+- Effectively, can only run one test
+
+## JSDom
+
+https://www.npmjs.com/package/jsdom
+
+### How it works
+
+<figure>
+<img src="tme/images/jsdom.png" "/>
+<caption>How JSDom works</caption>
+</figure>
