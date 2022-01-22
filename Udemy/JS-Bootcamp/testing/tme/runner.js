@@ -18,11 +18,11 @@ class Runner {
       };
 
       // if node finds 'it' node will automatically run this function
-      global.it = (desc, fn) => {
+      global.it = async (desc, fn) => {
         beforeEaches.forEach((func) => func());
 
         try {
-          fn();
+          await fn();
           // if test is passed this console will run
           console.log(`\tPass - ${desc}`);
         } catch (err) {
