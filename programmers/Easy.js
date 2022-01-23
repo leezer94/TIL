@@ -37,5 +37,31 @@
   let k = 2;
   // [2,1,1,0]
 
-  console.log(solution(id_list, report, k));
+  // console.log(solution(id_list, report, k));
+}
+{
+  // 체육복
+  function solution(n, lost, reserve) {
+    const realLost = lost.filter((num) => !reserve.includes(num));
+    let realReserve = reserve.filter((num) => !lost.includes(num));
+
+    return (
+      n -
+      realLost.filter((lost) => {
+        const lend = realReserve.find(
+          (reserve) => Math.abs(reserve - lost) === 1
+        );
+
+        if (!lend) return lost;
+
+        realReserve.filter((reserve) => reserve !== lend).length;
+      })
+    );
+  }
+
+  let n = 5;
+  let lost = [2, 4];
+  let reserve = [1, 3, 5];
+
+  console.log(solution(n, lost, reserve));
 }
