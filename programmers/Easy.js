@@ -65,3 +65,16 @@
 
   console.log(solution(n, lost, reserve));
 }
+{
+  let result = [];
+  let newArr = [];
+  //   console.log(arr.slice(1,5))
+  for (let i = 0; i < commands.length; i++) {
+    newArr = arr.slice(commands[i][0] - 1, commands[i][1]);
+    newArr = newArr.sort((a, b) => a - b);
+    console.log(newArr);
+    result.push(newArr[commands[i][2] - 1]);
+  }
+  // result = [...new Set(result)]
+  return result;
+}
