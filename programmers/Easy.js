@@ -197,5 +197,5 @@
   let arr2 = [27, 56, 19, 14, 14, 10];
   //["######", "### #", "## ##", " #### ", " #####", "### # "]
 
-  console.log(solution(n, arr1, arr2));
+  // console.log(solution(n, arr1, arr2));
 }
