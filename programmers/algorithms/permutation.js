@@ -92,6 +92,9 @@
   // number : 3 recursive(s, t, 2) + 2
   // number : 2 recursive(s, t, 1) + 2
   // number : 1  + 2 = 3
+
   result = forloop(3, 2, 5);
-  console.log(result);
+  // console.log(result);
+}
+{
 }

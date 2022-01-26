@@ -199,3 +199,105 @@
 
   // console.log(solution(n, arr1, arr2));
 }
+{
+  // 두개 뽑아서 더하기
+  function solution(numbers) {
+    let index = 0;
+    let result = [];
+
+    for (let i = 0; i < numbers.length; i++) {
+      for (let j = i + 1; j < numbers.length; j++) {
+        result.push(numbers[index] + numbers[j]);
+      }
+      index++;
+    }
+    result = [...new Set(result)];
+
+    return result.sort((a, b) => a - b);
+  }
+  let numbers = [2, 1, 3, 4, 1];
+
+  // console.log(solution(numbers));
+}
+{
+  // 예산
+  function solution(d, budget) {
+    d = d.sort((a, b) => a - b);
+    console.log(d);
+    let count = 0;
+    let sum = d.reduce((a, b) => a + b);
+
+    if (sum < budget) {
+      return d.length;
+    }
+
+    for (let i = 0; i < d.length; i++) {
+      budget -= d[i];
+      count++;
+
+      if (budget === 0) return count;
+      if (budget < 0) return count - 1;
+    }
+  }
+
+  // let d = [1, 3, 2, 5, 4];
+  // let budget = 9;
+  let d = [2, 2, 3];
+  let budget = 10;
+
+  // console.log(solution(d, budget));
+}
+{
+  // 약수의 개수와 덧셈
+  function solution(left, right) {
+    let answer = 0;
+
+    for (let i = left; i <= right; i++) {
+      let count = 0;
+      for (let j = 1; j <= i; j++) {
+        if (i % j === 0) count++;
+      }
+      if (count % 2) answer -= i;
+      else answer += i;
+    }
+
+    return answer;
+  }
+
+  let left = 13;
+  let right = 17; // 43
+  // console.log(solution(left, right));
+}
+{
+  // 실패율
+  function solution(n, stages) {
+    let hash = {};
+    let participants = stages.length;
+    let arr = [];
+
+    for (let i = 1; i <= n; i++) {
+      if (!hash[i]) hash[i] = 0;
+    }
+
+    for (let key in hash) {
+      for (let i = 0; i < stages.length; i++) {
+        if (stages[i] === Number(key)) hash[key]++;
+      }
+      arr.push(hash[key] / participants);
+      participants = participants - hash[key];
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+      hash[i + 1] = arr[i];
+    }
+
+    return Object.keys(hash)
+      .sort((a, b) => hash[b] - hash[a])
+      .map((num) => Number(num));
+  }
+
+  let n = 5;
+  let stages = [2, 1, 2, 6, 2, 4, 3, 3];
+
+  console.log(solution(n, stages));
+}
