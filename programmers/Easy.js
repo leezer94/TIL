@@ -299,5 +299,95 @@
   let n = 5;
   let stages = [2, 1, 2, 6, 2, 4, 3, 3];
 
-  console.log(solution(n, stages));
+  // console.log(solution(n, stages));
+}
+{
+  // 폰켓몬
+  function solution(nums) {
+    let nonDup = [...new Set(nums)].length;
+    let max = nums.length / 2;
+
+    return nonDup > max ? max : nonDup;
+  }
+  // let nums = [3, 1, 2, 3]; // 2 [1,2,3]
+  let nums = [3, 3, 3, 2, 2, 4]; // 3 [3,2,4]
+  // let nums = [3, 3, 3, 2, 2, 2]; // 2 [3,2]
+
+  // console.log(solution(nums));
+}
+{
+  // 모의고사
+  function solution(answers) {
+    const par1 = [1, 2, 3, 4, 5];
+    const par2 = [2, 1, 2, 3, 2, 4, 2, 5];
+    const par3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+    let participants = [1, 2, 3];
+
+    let hash = {};
+    let arr = [];
+    let result = [];
+
+    for (let num of participants) {
+      if (!hash[num]) {
+        hash[num] = 0;
+      }
+    }
+
+    for (let i = 0; i < answers.length; i++) {
+      if (par1[i] === answers[i]) {
+        hash[1]++;
+      }
+      if (par2[i] === answers[i]) {
+        hash[2]++;
+      }
+      if (par3[i] === answers[i]) {
+        hash[3]++;
+      }
+    }
+    console.log(hash);
+
+    for (let key in hash) {
+      arr.push(hash[key]);
+    }
+    const max = Math.max(...arr);
+
+    for (let key in hash) {
+      if (hash[key] === max) {
+        result.push(Number(key));
+      }
+    }
+
+    return result;
+  }
+  // let answers = [1, 2, 3, 4, 5];
+  // let answers = [1, 3, 2, 4, 2];
+  // let answers = [3, 3, 2, 1, 5];
+  // let answers = [5, 5, 4, 2, 3];
+  let answers = [1, 3, 2, 4, 5];
+
+  // console.log(solution(answers));
+}
+{
+  // k번째수
+  function solution(arr, commands) {
+    let result = [];
+
+    for (let i = 0; i < commands.length; i++) {
+      let i1 = commands[i][0];
+      let i2 = commands[i][1];
+      let i3 = commands[i][2];
+      let dumb = arr.slice(i1 - 1, i2).sort((a, b) => a - b)[i3 - 1];
+      result.push(dumb);
+    }
+
+    return result;
+  }
+  let array = [1, 5, 2, 6, 3, 7, 4];
+  let commands = [
+    [2, 5, 3],
+    [4, 4, 1],
+    [1, 7, 3],
+  ];
+
+  console.log(solution(array, commands));
 }
