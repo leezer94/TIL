@@ -389,5 +389,46 @@
     [1, 7, 3],
   ];
 
-  console.log(solution(array, commands));
+  // console.log(solution(array, commands));
+}
+{
+  // 위장
+  function solution(clothes) {
+    let hash = {};
+
+    for (let list of clothes) {
+      if (!hash[list[1]]) {
+        hash[list[1]] = [list[0]];
+      } else {
+        Object.assign(list[], hash);
+      }
+    }
+
+    console.log(hash);
+  }
+
+  let clothes = [
+    ['yellowhat', 'headgear'],
+    ['bluesunglasses', 'eyewear'],
+    ['green_turban', 'headgear'],
+  ];
+  // let clothes = [
+  //   ['crowmask', 'face'],
+  //   ['bluesunglasses', 'face'],
+  //   ['smoky_makeup', 'face'],
+  // ];
+
+  // console.log(solution(clothes));
+}
+
+{
+  // 완주하지 못한 선수
+  function solution(participant, completion) {
+    participant.sort()
+    completion.sort()
+    for(let i=0; i<participant.length; i++) {
+        if(participant[i] !== completion[i])
+            return participant[i]
+    }
+}
 }
