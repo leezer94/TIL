@@ -400,7 +400,7 @@
       if (!hash[list[1]]) {
         hash[list[1]] = [list[0]];
       } else {
-        Object.assign(list[], hash);
+        // Object.assign(list[], hash);
       }
     }
 
@@ -423,12 +423,58 @@
 
 {
   // 완주하지 못한 선수
-  function solution(participant, completion) {
-    participant.sort()
-    completion.sort()
-    for(let i=0; i<participant.length; i++) {
-        if(participant[i] !== completion[i])
-            return participant[i]
-    }
+  //   function solution(participant, completion) {
+  //     participant.sort()
+  //     completion.sort()
+  //     for(let i=0; i<participant.length; i++) {
+  //         if(participant[i] !== completion[i])
+  //             return participant[i]
+  //     }
+  // }
 }
+{
+  // 내적
+  function solution(a, b) {
+    let result = [];
+    for (let i = 0; i < a.length; i++) {
+      result.push(a[i] * b[i]);
+    }
+    return result.reduce((a, b) => a + b);
+  }
+  let a = [1, 2, 3, 4];
+  let b = [-3, -1, 0, 2];
+
+  // console.log(solution(a, b));
+}
+{
+  // 음양 더하기
+  function solution(a, b) {
+    for (let i = 0; i < b.length; i++) {
+      b[i] ? (a[i] = a[i]) : (a[i] = -a[i]);
+    }
+    return a.reduce((a, b) => a + b);
+  }
+
+  let a = [4, 7, 12];
+  let b = [true, false, true];
+
+  // console.log(solution(a, b));
+}
+{
+  // 없는 숫자 더하기
+  function solution(nums) {
+    nums.sort((a, b) => a - b);
+    let arr = [];
+    for (let i = 0; i <= 9; i++) {
+      arr.push(i);
+    }
+    let result = arr
+      .filter((num) => !nums.includes(num))
+      .reduce((a, b) => a + b);
+
+    return result;
+  }
+
+  let nums = [1, 2, 3, 4, 6, 7, 8, 0];
+  console.log(solution(nums));
 }
