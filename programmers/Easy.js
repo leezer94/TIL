@@ -476,5 +476,49 @@
   }
 
   let nums = [1, 2, 3, 4, 6, 7, 8, 0];
-  console.log(solution(nums));
+  // console.log(solution(nums));
+}
+{
+  // 크레인 인형뽑기 게임
+  function solution(board, moves) {
+    let stack = [];
+    let count = 0;
+    let temp = 0;
+
+    for (let i = 0; i < moves.length; i++) {
+      let index = moves[i];
+      for (let j = 0; j < board.length; j++) {
+        let arr = board[j];
+        if (arr[index - 1] !== 0) {
+          if (temp === arr[index - 1]) {
+            count += 2;
+            if (stack.length > 0) {
+              stack.pop();
+              temp = stack[stack.length - 1];
+            } else {
+              temp = 0;
+            }
+          } else {
+            stack.push(arr[index - 1]);
+            temp = arr[index - 1];
+          }
+          arr[index - 1] = 0;
+          break;
+        }
+      }
+    }
+
+    return count;
+  }
+
+  let board = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 3],
+    [0, 2, 5, 0, 1],
+    [4, 2, 4, 4, 2],
+    [3, 5, 1, 3, 1],
+  ];
+  let moves = [1, 5, 3, 5, 1, 2, 1, 4];
+
+  console.log(solution(board, moves));
 }
