@@ -520,5 +520,29 @@
   ];
   let moves = [1, 5, 3, 5, 1, 2, 1, 4];
 
-  console.log(solution(board, moves));
+  // console.log(solution(board, moves));
+}
+{
+  // 숫자 문자열과 영단어
+  function solution(s) {
+    s = s
+      .replace(/zero/g, '0')
+      .replace(/one/g, '1')
+      .replace(/two/g, '2')
+      .replace(/three/g, '3')
+      .replace(/four/g, '4')
+      .replace(/five/g, '5')
+      .replace(/six/g, '6')
+      .replace(/seven/g, '7')
+      .replace(/eight/g, '8')
+      .replace(/nine/g, '9');
+
+    return Number(s);
+  }
+
+  // let s = 'one4seveneight';
+  // let s = '2three45sixsevenzero';
+  let s = '1zerotwozero3zero';
+
+  console.log(solution(s));
 }
