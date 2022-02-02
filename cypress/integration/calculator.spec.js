@@ -13,4 +13,12 @@ describe('calculator', () => {
     cy.get('.digits').contains('4').click();
     cy.get('#total').should('contain', '4');
   });
+
+  it('should display a maximum of 3 digits even if more than 3 digits are entered', () => {
+    cy.get('.digits').contains('1').click();
+    cy.get('.digits').contains('2').click();
+    cy.get('.digits').contains('3').click();
+    cy.get('.digits').contains('4').click();
+    cy.get('#total').should('contain', '123');
+  });
 });
