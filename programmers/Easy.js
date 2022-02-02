@@ -605,5 +605,40 @@
   }
   let new_id = '...!@BaT#*..y.abcdefghijklm';
 
-  console.log(solution(new_id));
+  // console.log(solution(new_id));
+}
+{
+  // 로또 최고 순위와 최저순위
+  function solution(lottos, win_nums) {
+    let min = [];
+    let max = lottos.filter((num) => num === 0);
+    let map = { 1: 6, 2: 5, 3: 4, 4: 3, 5: 2, 6: 1, 6: 0 };
+    let result = [];
+
+    for (let num of lottos) {
+      for (let nums of win_nums) {
+        if (num === nums) {
+          min.push(num);
+        }
+      }
+    }
+
+    max = min.length + max.length;
+
+    for (let num in map) {
+      if (max === map[num]) {
+        result.push(Number(num));
+      } else if (max === undefined) {
+        result.push(6);
+      }
+      if (min.length === map[num]) {
+        result.push(Number(num));
+      }
+    }
+    return result;
+  }
+  let lottos = [44, 1, 0, 0, 31, 25];
+  let win_nums = [31, 10, 45, 1, 6, 19];
+
+  console.log(solution(lottos, win_nums));
 }
