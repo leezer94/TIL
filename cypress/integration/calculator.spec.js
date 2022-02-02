@@ -21,4 +21,11 @@ describe('calculator', () => {
     cy.get('.digits').contains('4').click();
     cy.get('#total').should('contain', '123');
   });
+
+  it('should display default digit 0 when AC button is clicked', () => {
+    cy.get('.digits').contains('4').click();
+    cy.get('#total').should('contain', '4');
+    cy.contains('AC').click();
+    cy.get('#total').should('contain', '0');
+  });
 });
