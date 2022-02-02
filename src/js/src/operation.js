@@ -1,7 +1,7 @@
 import { initDisplay } from './display.js';
 import { $total } from './DOM.js';
 
-export const insertOperators = ({ target }) => {
+export const addFirstNumToStorage = ({ target }) => {
   const sheet = { numOne: 0, numTwo: 0, operator: '' };
 
   target = target.innerText;
@@ -13,4 +13,13 @@ export const insertOperators = ({ target }) => {
   }
 
   localStorage.array = JSON.stringify(sheet);
+};
+
+export const addSecondNumToStorage = () => {
+  const sheet = JSON.parse(localStorage.getItem('array'));
+
+  console.log(sheet);
+  sheet.numTwo = $total.innerText;
+
+  localStorage.setItem('array', JSON.stringify(sheet));
 };

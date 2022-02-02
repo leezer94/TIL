@@ -1,20 +1,21 @@
 import { $total } from './DOM.js';
 
-export const insertNumbers = ({ target }) => {
-  const digit = target.innerHTML;
+export const printNumberToScreen = ({ target }) => {
+  const digit = target.innerText;
 
   if (isValidLength()) {
-    if ($total.innerHTML === '0') {
-      return ($total.innerHTML = digit);
+    if ($total.innerText === '0') {
+      return ($total.innerText = digit);
     } else {
-      return ($total.innerHTML += digit);
+      return ($total.innerText += digit);
     }
   }
 };
 
 const isValidLength = () => {
   let isValid = false;
-  if ($total.innerHTML.length > 2) {
+
+  if ($total.innerText.length > 2) {
     isValid;
   } else {
     isValid = true;
