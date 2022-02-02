@@ -80,4 +80,17 @@ describe('calculator', () => {
     cy.get('.operation').contains('=').click();
     cy.get('#total').should('contain', '9900');
   });
+
+  it('should display rounded down result after calculation', () => {
+    cy.get('.digits').contains('4').click();
+    cy.get('.digits').contains('0').click();
+    cy.get('.digits').contains('5').click();
+    cy.get('#total').should('contain', '405');
+    cy.get('.operation').contains('/').click();
+    cy.get('#total').should('contain', '0');
+    cy.get('.digits').contains('2').click();
+    cy.get('.digits').contains('2').click();
+    cy.get('.operation').contains('=').click();
+    cy.get('#total').should('contain', '18');
+  });
 });
