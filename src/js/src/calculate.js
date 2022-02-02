@@ -16,5 +16,6 @@ export const calculate = () => {
   if (operator === '+') $total.innerText = Number(numOne) + Number(numTwo);
   if (operator === '-') $total.innerText = Number(numOne) - Number(numTwo);
   if (operator === 'X') $total.innerText = Number(numOne) * Number(numTwo);
-  if (operator === '/') $total.innerText = Number(numOne) / Number(numTwo);
+  if (operator === '/')
+    $total.innerText = Math.floor(Number(numOne) / Number(numTwo));
 };
