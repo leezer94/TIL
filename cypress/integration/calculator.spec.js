@@ -41,4 +41,17 @@ describe('calculator', () => {
     cy.get('.operation').contains('=').click();
     cy.get('#total').should('contain', '199');
   });
+
+  it('should be able to calculate subtraction of two numbers', () => {
+    cy.get('.digits').contains('1').click();
+    cy.get('.digits').contains('0').click();
+    cy.get('.digits').contains('0').click();
+    cy.get('#total').should('contain', '100');
+    cy.get('.operation').contains('-').click();
+    cy.get('#total').should('contain', '0');
+    cy.get('.digits').contains('9').click();
+    cy.get('.digits').contains('9').click();
+    cy.get('.operation').contains('=').click();
+    cy.get('#total').should('contain', '1');
+  });
 });
