@@ -640,5 +640,72 @@
   let lottos = [44, 1, 0, 0, 31, 25];
   let win_nums = [31, 10, 45, 1, 6, 19];
 
-  console.log(solution(lottos, win_nums));
+  // console.log(solution(lottos, win_nums));
+}
+{
+  // 신고 결과 받기
+  function solution(id_list, report, k) {
+    const hash = {};
+    const jail = {};
+    const blocked = [];
+    const result = Array(id_list.length).fill(0);
+
+    // put reported ones into the hash map
+    for (let id of report) {
+      let arr = id.split(' ');
+      if (!hash[arr[0]]) {
+        hash[arr[0]] = [arr[1]];
+      } else {
+        hash[arr[0]].push(arr[1]);
+      }
+    }
+
+    for (let key in hash) {
+      hash[key] = [...new Set(hash[key])];
+    }
+
+    for (let key in hash) {
+      for (let id of hash[key]) {
+        if (!jail[id]) {
+          jail[id] = 1;
+        } else {
+          jail[id]++;
+        }
+      }
+    }
+
+    // find who is actually blocked
+    for (let key in jail) {
+      if (jail[key] >= k) {
+        blocked.push(key);
+      }
+    }
+
+    for (let key in hash) {
+      for (let id of blocked) {
+        if (hash[key].includes(id)) {
+          result[id_list.indexOf(key)] += 1;
+        }
+      }
+    }
+
+    return result;
+  }
+
+  // let id_list = ['muzi', 'frodo', 'apeach', 'neo'];
+  let id_list = ['con', 'ryan'];
+
+  // let report = [
+  //   'muzi frodo',
+  //   'apeach frodo',
+  //   'frodo neo',
+  //   'muzi neo',
+  //   'apeach muzi',
+  // ];
+  let report = ['ryan con', 'ryan con', 'ryan con', 'ryan con'];
+  // let k = 2;
+  let k = 3;
+  // [2,1,1,0]
+  // [0,0]
+  console.log(solution(id_list, report, k));
 }
