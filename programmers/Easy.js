@@ -707,5 +707,21 @@
   let k = 3;
   // [2,1,1,0]
   // [0,0]
-  console.log(solution(id_list, report, k));
+  // console.log(solution(id_list, report, k));
+}
+{
+  // JadenCase 문자열 만들기
+
+  function solution(s) {
+    return s
+      .split(' ')
+      .map(
+        (word) => word.charAt(0).toUpperCase() + word.substring(1).toLowerCase()
+      )
+      .join(' ');
+  }
+
+  let s = '3people unFollowed me';
+
+  console.log(solution(s));
 }
