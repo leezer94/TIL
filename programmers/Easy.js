@@ -723,5 +723,32 @@
 
   let s = '3people unFollowed me';
 
-  console.log(solution(s));
+  // console.log(solution(s));
+}
+
+{
+  // 행렬의 곱셈
+  function solution(arr1, arr2) {
+    let result = [];
+
+    for (let i = 0; i < arr1.length; i++) {
+      let arr = arr1[i];
+      for (let j = 0; j < arr.length; j++) {
+        let num = arr[j];
+      }
+    }
+  }
+
+  let arr1 = [
+    [2, 3, 2],
+    [4, 2, 4],
+    [3, 1, 4],
+  ];
+  let arr2 = [
+    [5, 4, 3],
+    [2, 4, 1],
+    [3, 1, 1],
+  ];
+
+  console.log(solution(arr1, arr2));
 }
