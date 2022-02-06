@@ -60,5 +60,13 @@
   let a = [1, 4, 2];
   let b = [5, 4, 4];
 
-  console.log(solution(a, b));
+  // console.log(solution(a, b));
+}
+{
+  // 피보나치 수
+  function fibonacci(num) {
+    if (num < 2) return num;
+
+    return fibonacci(num - 1) + fibonacci(num - 2);
+  }
 }
