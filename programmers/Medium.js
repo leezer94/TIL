@@ -64,9 +64,114 @@
 }
 {
   // 피보나치 수
-  function fibonacci(num) {
-    if (num < 2) return num;
+  // function fibonacci(num) {
+  //   if (num < 2) return num;
+  //   return fibonacci(num - 1) + fibonacci(num - 2);
+  // }
+}
+{
+  // 주차요금
+  function solution(fees, records) {
+    let recordsHash = {};
+    let feeHash = {
+      기본시간: fees[0],
+      기본요금: fees[1],
+      단위시간: fees[2],
+      단위요금: fees[3],
+    };
+    let result = {};
+    for (let arr of records) {
+      const detail = arr.split(' ');
 
-    return fibonacci(num - 1) + fibonacci(num - 2);
+      if (!recordsHash[detail[1]]) {
+        recordsHash[detail[1]] = [detail[0]];
+      } else {
+        recordsHash[detail[1]].push(detail[0]);
+      }
+    }
+
+    for (let key in recordsHash) {
+      if (recordsHash[key].length % 2 !== 0) {
+        recordsHash[key].push('23:59');
+      }
+    }
+
+    for (let key in recordsHash) {
+      for (let i = 0; i < recordsHash[key].length; i++) {
+        recordsHash[key][i] = recordsHash[key][i]
+          .split(':')
+          .map((num, i) => {
+            if (i !== 0) {
+              num = Number(num);
+            } else {
+              num = Number(num) * 60;
+            }
+            return num;
+          })
+          .reduce((a, b) => a + b);
+      }
+
+      recordsHash[key] = recordsHash[key]
+        .map((num, i) => {
+          if (i % 2 === 0) {
+            num *= -1;
+          }
+
+          return num;
+        })
+        .reduce((a, b) => a + b);
+    }
+
+    for (let key in recordsHash) {
+      recordsHash[key] = recordsHash[key] - feeHash.기본시간;
+
+      if (recordsHash[key] <= 0) {
+        result[key] = feeHash.기본요금;
+      } else {
+        result[key] =
+          Math.ceil(recordsHash[key] / feeHash.단위시간) * feeHash.단위요금 +
+          feeHash.기본요금;
+      }
+    }
+
+    let arr = [];
+    for (let key in result) {
+      arr.push(Number(key));
+    }
+    arr.sort((a, b) => a - b);
+
+    for (let key in result) {
+      for (let i = 0; i < arr.length; i++) {
+        if (Number(key) === arr[i]) {
+          arr[i] = result[key];
+        }
+      }
+    }
+
+    return arr;
   }
+
+  let fees = [180, 5000, 10, 600];
+  let records = [
+    '05:34 5961 IN',
+    '06:00 0000 IN',
+    '06:34 0000 OUT',
+    '07:59 5961 OUT',
+    '07:59 0148 IN',
+    '18:59 0000 IN',
+    '19:09 0148 OUT',
+    '22:59 5961 IN',
+    '23:00 5961 OUT',
+  ];
+
+  // let fees = [120, 0, 60, 591];
+  // let records = [
+  //   '16:00 3961 IN',
+  //   '16:00 0202 IN',
+  //   '18:00 3961 OUT',
+  //   '18:00 0202 OUT',
+  //   '23:58 3961 IN',
+  // ];
+
+  console.log(solution(fees, records));
 }
