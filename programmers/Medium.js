@@ -173,5 +173,31 @@
   //   '23:58 3961 IN',
   // ];
 
-  console.log(solution(fees, records));
+  // console.log(solution(fees, records));
+}
+{
+  // 땅따먹기
+  function solution(land) {
+    return Math.max(
+      ...land.reduce(
+        (a, c) => {
+          return [
+            c[0] + Math.max(a[1], a[2], a[3]),
+            c[1] + Math.max(a[0], a[2], a[3]),
+            c[2] + Math.max(a[0], a[1], a[3]),
+            c[3] + Math.max(a[0], a[1], a[2]),
+          ];
+        },
+        [0, 0, 0, 0]
+      )
+    );
+  }
+  let land = [
+    [1, 2, 3, 6],
+    [5, 6, 7, 3],
+    [4, 3, 7, 5],
+    [3, 4, 5, 6],
+  ];
+  // [6,7,5,5]
+  console.log(solution(land));
 }
