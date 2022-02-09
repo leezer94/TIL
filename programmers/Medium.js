@@ -199,14 +199,52 @@
     [3, 4, 5, 6],
   ];
   // [6,7,5,5]
-  console.log(solution(land));
+  // console.log(solution(land));
 }
 {
   // 튜플
   function solution(s) {
-    for (let hash in s) {
-      console.log(hash);
+    let numArr = [];
+    const hash = {};
+    s = s
+      .replace('{{', '')
+      .replace('}}', '')
+      .split('},{')
+      .map((num) => numArr.push(num.split(',')));
+
+    numArr = numArr
+      .sort((a, b) => a.length - b.length)
+      .map(
+        (numArr) =>
+          (numArr = numArr.map((num) => Number(num)).sort((a, b) => a - b))
+      );
+
+    for (let arr of numArr) {
+      for (let num of arr) {
+        if (!hash[num]) {
+          hash[num] = 1;
+        } else {
+          hash[num]++;
+        }
+      }
     }
+    let result = [];
+    console.log(hash);
+    for (let key in hash) {
+      result.push(hash[key]);
+    }
+
+    result.sort((a, b) => b - a);
+    let answer = [];
+    for (let num of result) {
+      for (let key in hash) {
+        if (num === hash[key]) {
+          answer.push(Number(key));
+        }
+      }
+    }
+
+    return answer;
   }
 
   let s = '{{1,2,3},{2,1},{1,2,4,3},{2}}'; // [2,1,3,4]

@@ -709,3 +709,33 @@
   // [0,0]
   // console.log(solution(id_list, report, k));
 }
+{
+  // 데모 테스트
+  function solution(v) {
+    const x = {};
+    const y = {};
+    const result = [];
+
+    for (let arr of v) {
+      !x[arr[0]] ? (x[arr[0]] = 1) : (x[arr[0]] += 1);
+      !y[arr[1]] ? (y[arr[1]] = 1) : (y[arr[1]] += 1);
+    }
+
+    for (let key in x) {
+      if (x[key] === 1) result[0] = Number(key);
+    }
+    for (let key in y) {
+      if (y[key] === 1) result[1] = Number(key);
+    }
+
+    return result;
+  }
+
+  let v = [
+    [1, 4],
+    [3, 4],
+    [3, 10],
+  ];
+
+  console.log(solution(v));
+}
