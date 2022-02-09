@@ -201,3 +201,15 @@
   // [6,7,5,5]
   console.log(solution(land));
 }
+{
+  // 튜플
+  function solution(s) {
+    for (let hash in s) {
+      console.log(hash);
+    }
+  }
+
+  let s = '{{1,2,3},{2,1},{1,2,4,3},{2}}'; // [2,1,3,4]
+
+  console.log(solution(s));
+}
