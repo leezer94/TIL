@@ -1112,3 +1112,78 @@
 
   // console.log(minEatingSpeed(piles, h));
 }
+{
+  //  17. Letter Combinations of a Phone Number
+
+  var letterCombinations = function (digits) {
+    const map = {
+      2: ['a', 'b', 'c'],
+      3: ['d', 'e', 'f'],
+      4: ['g', 'h', 'i'],
+      5: ['j', 'k', 'l'],
+      6: ['m', 'n', 'o'],
+      7: ['p', 'q', 'r', 's'],
+      8: ['t', 'u', 'v'],
+      9: ['w', 'x', 'y', 'z'],
+    };
+    if (digits === '') return [];
+    let result = [];
+
+    for (let num of digits) {
+      console.log(num);
+      let poss = [];
+    }
+    for (let arr of digits) {
+      // for (let i = 0; i < map[arr].length; i++) {
+      //   const cha = map[arr];
+      // }
+    }
+  };
+
+  let digits = '27';
+  // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+  // console.log(letterCombinations(digits));
+}
+{
+  // integer to Roman
+
+  var intToRoman = function (num) {
+    let res = '';
+    if (num < 1 || num > 3999) return res;
+    const weight = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const token = [
+      'M',
+      'CM',
+      'D',
+      'CD',
+      'C',
+      'XC',
+      'L',
+      'XL',
+      'X',
+      'IX',
+      'V',
+      'IV',
+      'I',
+    ];
+
+    let index = 0;
+
+    while (num > 0) {
+      if (num - weight[index] >= 0) {
+        res += token[index];
+        num -= weight[index];
+      } else {
+        index++;
+      }
+    }
+    return res;
+  };
+
+  let num = 1528;
+
+  // "LVIII"
+
+  console.log(intToRoman(num));
+}
