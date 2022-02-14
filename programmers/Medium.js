@@ -560,5 +560,101 @@
   // "Prodo님이 나갔습니다.",
   // "Prodo님이 들어왔습니다."]
 
-  console.log(solution(record));
+  // console.log(solution(record));
 }
+
+{
+  function intersect(a, b) {
+    let result = [];
+
+    a.forEach((num) => {
+      b.forEach((el) => {
+        if (num === el) result.push(num);
+      });
+    });
+
+    return result;
+  }
+
+  let a = [1, 4, 7];
+  let b = [2, 4];
+
+  // console.log(intersect(a, b));
+}
+{
+  function sum(a, b) {
+    a = a.concat(b);
+
+    return [...new Set(a)].sort((a, b) => a - b);
+  }
+
+  let a = [1, 4, 7];
+  let b = [2];
+
+  // console.log(sum(a, b));
+}
+{
+  // 메뉴 리뉴얼
+
+  function solution(orders, course) {}
+
+  let orders = ['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'];
+  let course = [2, 3, 4];
+  // ["AC", "ACDE", "BCFG", "CDE"]
+
+  // console.log(solution(orders, course));
+}
+{
+  // 짝지어 제거하기
+
+  function solution(s) {
+    var arr = [];
+    for (var i = 0; i < s.length; i++) {
+      if (arr[arr.length - 1] !== s[i]) {
+        arr.push(s[i]);
+      } else {
+        arr.pop();
+      }
+    }
+    return arr.length > 0 ? 0 : 1;
+  }
+
+  let s = 'baabaa';
+  // console.log(solution(s));
+}
+{
+  // 아이언맨 수트
+
+  function solution(n) {
+    let k = 2;
+
+    if (n === 1 || n === 2) return k - 1;
+    console.log(n / k);
+
+    while (k > 0) {
+      if (n % k === 0) {
+        return k;
+      } else {
+        k++;
+      }
+    }
+  }
+
+  let n = 5000;
+
+  // console.log(solution(n));
+}
+{
+  function fibonacci(number) {
+		if(number < 0 ) {
+					alert('음수값은 올 수 없습니다.);
+					return
+		}
+		if(number <= 2 ){
+      return number
+		}
+		return fibonacci(number-1) + fibonacci(number-2)
+}
+
+let number = 5
+console.log(fibonacci(number));
