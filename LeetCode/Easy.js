@@ -1185,5 +1185,16 @@
 
   // "LVIII"
 
-  console.log(intToRoman(num));
+  // console.log(intToRoman(num));
+}
+{
+  // Reverse Integer
+  var reverse = function (x) {
+    const reversed = x.toString().split('').reverse().join(''); // turn a number into a string, then turn it into an array to reverse.
+    return Math.sign(x) * parseInt(reversed);
+  };
+
+  let x = 1534236469;
+
+  console.log(reverse(x));
 }
