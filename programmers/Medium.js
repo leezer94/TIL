@@ -436,7 +436,7 @@
 
   let l = [1, 10, 10, 10, 5];
 
-  console.log(solution(l));
+  // console.log(solution(l));
 }
 
 {
@@ -644,17 +644,218 @@
 
   // console.log(solution(n));
 }
+
 {
-  function fibonacci(number) {
-		if(number < 0 ) {
-					alert('음수값은 올 수 없습니다.);
-					return
-		}
-		if(number <= 2 ){
-      return number
-		}
-		return fibonacci(number-1) + fibonacci(number-2)
+  function solution(p) {
+    // 1. 입력이 빈 문자열인 경우, 빈 문자열을 반환합니다.
+    if (!p) return p;
+  }
+
+  let p = '(()())()';
+
+  // console.log(solution(p));
+}
+{
+  function solution(arr) {
+    let odd = [];
+
+    for (let i = arr.length; i >= 0; i--) {
+      if (arr[i] % 2 !== 0) {
+        odd.push(arr[i]);
+        arr.splice(i, 0, arr[i]);
+      }
+    }
+
+    arr = arr.filter((num) => num !== undefined);
+
+    for (let i = 1; i < odd.length; i++) {
+      arr.pop();
+    }
+
+    return arr;
+  }
+
+  let arr = [0, 2, 1, 4, 3, 0];
+  // [0, 2, 1, 1, 4, 3]
+
+  // console.log(solution(arr));
 }
 
-let number = 5
-console.log(fibonacci(number));
+{
+  function solution(bj, one, two) {
+    let winner = bj.filter((man) => {
+      if (!one.includes(man) && !two.includes(man)) {
+        return man;
+      }
+    });
+
+    let sum = one.length * 150 + two.length * 300 + winner.length * 450;
+
+    return `${sum}만원(${winner})`;
+  }
+
+  let bj = ['혁준', '하밥', '양상', '심심이', '소스왕'];
+  let one = ['혁준', '양상'];
+  let two = ['심심이', '소스왕'];
+
+  // console.log(solution(bj, one, two));
+}
+{
+  function solution(n) {
+    let count = 0;
+    for (let i = 0; i <= n; i++) {
+      let index = i.toString(2).split('');
+      for (let j = 0; j < index.length; j++) {
+        if (index[j] === '1') {
+          count++;
+        }
+      }
+    }
+
+    return count;
+  }
+
+  let n = 100;
+  // 4
+
+  // console.log(solution(n));
+}
+{
+  function solution(arr) {
+    let result = [];
+    for (let num of arr) {
+      result.push(num.split(' ').length);
+    }
+
+    return Math.max(...result);
+  }
+
+  let arr = ['Happy new year', 'Hello world', 'Nice to meet you'];
+
+  // console.log(solution(arr));
+}
+{
+  function solution(arr, k) {
+    arr = arr.sort((a, b) => a - b);
+    let half = Math.floor(arr.length / 2);
+
+    let left = arr.slice(0, half);
+    let right = arr.slice(half, arr.length);
+
+    left = Math.max(...left);
+    right = Math.max(...right);
+
+    return left + right;
+  }
+
+  let arr = [6, 2, 1, 4];
+  let k = 2;
+
+  // console.log(solution(arr, k));
+}
+{
+  function solution(arr, k) {
+    arr = arr.sort((a, b) => a - b);
+    let len = arr.length / k;
+    let sum = 0;
+
+    for (let i = 1; i <= arr.length; i += len) {
+      console.log(arr[i]);
+      sum += arr[i];
+    }
+
+    return sum;
+  }
+
+  let arr = [6, 2, 1, 4];
+  let k = 2;
+
+  // console.log(solution(arr, k));
+}
+{
+  function solution(n) {
+    n = n.sort((a, b) => b - a);
+
+    let max1 = n[0];
+    let max2 = n[1];
+
+    while (n.length > 1) {
+      if (max1 - max2 !== 0) {
+        n.shift(max1);
+        n.shift(max2);
+        n.push(max1 - max2);
+        n = n.sort((a, b) => b - a);
+
+        max1 = n[0];
+        max2 = n[1];
+      } else if (max1 - max2 === 0) {
+        n.sort((a, b) => b - a);
+        n.shift(max1);
+        n.shift(max2);
+      }
+    }
+
+    return n.length > 0 ? n[0] : 0;
+  }
+
+  let n = [4, 8, 6, 1, 2];
+  console.log(solution(n));
+}
+
+{
+  function solution(arr) {
+    let result = [];
+    let count = 0;
+    if (arr.length === 1 && arr.includes(0)) {
+      return 0;
+    }
+
+    for (let num of arr) {
+      if (num === 1) {
+        count += 1;
+        result.push(count);
+      } else {
+        count = 0;
+      }
+    }
+
+    return Math.max(...result);
+  }
+  let arr = [0];
+
+  // console.log(solution(arr));
+}
+
+{
+  function solution(bridge, jumpSize) {
+    let result = [];
+    let count = 0;
+
+    for (let num of bridge) {
+      if (num === 0) {
+        count += 1;
+        result.push(count);
+      } else {
+        count = 0;
+      }
+    }
+
+    let max = Math.max(...result);
+
+    return jumpSize >= max ? true : false;
+  }
+
+  let bridge = [1, 0, 1, 0, 0, 1];
+  let jumpSize = 2;
+
+  // console.log(solution(bridge, jumpSize));
+}
+{
+  function solution(h, w) {
+    let [x, y] = [1, 1];
+  }
+
+  let h = 2;
+  let w = 3;
+  // console.log(solution(h, w));
+}
