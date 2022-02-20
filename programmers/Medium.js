@@ -799,7 +799,7 @@
   }
 
   let n = [4, 8, 6, 1, 2];
-  console.log(solution(n));
+  // console.log(solution(n));
 }
 
 {
@@ -858,4 +858,242 @@
   let h = 2;
   let w = 3;
   // console.log(solution(h, w));
+}
+{
+  // 순위 검색
+  function solution(info, query) {
+    let result = new Array(info.length).fill(0);
+    const table = {};
+    let qry = query
+      .map((word) => word.split(/ and |-| /i))
+      .map((arr) => arr.filter((word) => word !== ''));
+    info = info.map((word) => word.split(' '));
+
+    console.log(info, qry);
+  }
+
+  let info = [
+    'java backend junior pizza 150',
+    'python frontend senior chicken 210',
+    'python frontend senior chicken 150',
+    'cpp backend senior pizza 260',
+    'java backend junior chicken 80',
+    'python backend senior chicken 50',
+  ];
+  let query = [
+    'java and backend and junior and pizza 100',
+    'python and frontend and senior and chicken 200',
+    'cpp and - and senior and pizza 250',
+    '- and backend and senior and - 150',
+    '- and - and - and chicken 100',
+    '- and - and - and - 150',
+  ];
+
+  // [1,1,1,1,2,4]
+
+  // console.log(solution(info, query));
+}
+{
+  // names = names.map((person) => person.toLowerCase());
+  // let table = {};
+  // let status = {};
+  // let count = 0;
+  // let arr = [];
+  // for (let person of names) {
+  //   if (!table[person]) {
+  //     table[person] = 1;
+  //   } else {
+  //     table[person]++;
+  //   }
+  // }
+  // for (let i = 0; i < names.length; i++) {
+  //   let person = names[i];
+  //   if (!status[person]) {
+  //     status[person] = [amounts[i]];
+  //   } else {
+  //     status[person].push(amounts[i]);
+  //   }
+  // }
+  // for (let key in table) {
+  //   if (table[key] >= k) {
+  //     count += 1;
+  //     arr.push(key);
+  //   }
+  // }
+  // for (let key in status) {
+  //   if (status[key].length === k) {
+  //     if (status[key].some((money) => money >= m)) {
+  //       count -= 1;
+  //     }
+  //   }
+  // }
+  // for (let money of amounts) {
+  //   if (money >= m) {
+  //     count += 1;
+  //   }
+  // }
+  // return count === 0 ? 0 : count;
+}
+{
+  // 보이스피실
+
+  function solution(k, m, names, amounts) {
+    names = names.map((person) => person.toLowerCase());
+    let hash = {};
+    let count = 0;
+    let dup = [];
+
+    for (let i = 0; i < amounts.length; i++) {
+      if (!hash[names[i]]) {
+        hash[names[i]] = [amounts[i]];
+      } else {
+        hash[names[i]].push(amounts[i]);
+      }
+    }
+
+    console.log(hash);
+
+    for (let key in hash) {
+      if (hash[key].length >= k) {
+        count += 1;
+        if (hash[key].length === k) {
+          for (let money of hash[key]) {
+            if (money >= m) {
+              dup.push(key);
+            }
+          }
+        }
+      }
+    }
+
+    console.log(hash, dup);
+
+    for (let num of amounts) {
+      if (num >= m) count += 1;
+    }
+
+    dup = [...new Set(dup)];
+
+    if (!dup) {
+      return count;
+    } else {
+      return count - dup.length;
+    }
+  }
+
+  let k = 2;
+  let m = 3451;
+  let names = ['abcd', 'aBCd', 'jsKIM', 'rrr', 'rrr'];
+
+  let amounts = [950, 1000, 1400, 4000, 10000];
+
+  // 5s
+
+  // console.log(solution(k, m, names, amounts));
+}
+{
+  function solution(research, n, k) {
+    let len = research.length;
+    let hash = {};
+
+    for (let i = 0; i < research.length; i++) {
+      let arr = research[i];
+      for (let word of arr) {
+        if (!hash[word]) {
+          hash[word] = new Array(len).fill(0);
+        } else {
+          console.log(hash[word][i]);
+        }
+      }
+    }
+
+    console.log(hash);
+  }
+
+  let research = ['abaaaa', 'aaa', 'abaaaaaa', 'fzfffffffa'];
+
+  let n = 2;
+  let k = 2;
+
+  // console.log(solution(research, n, k));
+}
+
+{
+  function solution(value, projects) {
+    let hash = {};
+    let table = {};
+
+    for (let i = 0; i < value.length; i++) {
+      if (!hash[i + 1]) {
+        hash[i + 1] = value[i];
+      }
+    }
+
+    for (let arr of projects) {
+      if (!table[arr[0]]) {
+        table[arr[0]] = [arr[1]];
+      } else {
+        table[arr[0]].push(arr[1]);
+      }
+    }
+    let sortable = [];
+
+    for (let key in hash) {
+      sortable.push([key, hash[key]]);
+    }
+
+    sortable.sort((a, b) => b[0] - a[0]);
+
+    console.log(sortable);
+
+    console.log(projects);
+
+    // console.log(table);
+    // console.log(hash);
+
+    // for (let arr in table) {
+    //   console.log(table[arr]);
+    //   for (let num of table[arr]) {
+    //     num = hash[num];
+    //   }
+    // }
+  }
+
+  let value = [10, 11, 8, 5, 9, 15, 17];
+  let projects = [
+    [1, 2],
+    [1, 3],
+    [1, 4],
+    [3, 5],
+    [3, 6],
+    [4, 7],
+  ];
+
+  console.log(solution(value, projects));
+}
+{
+  function solution(k, m, names, amounts) {
+    names = names.map((person) => person.toLowerCase());
+  }
+  let k = 3;
+  let m = 50000;
+  let names = [
+    'msLEE',
+    'jsKim',
+    'jsKIM',
+    'jskiM',
+    'jskim',
+    'John',
+    'john',
+    'John',
+    'msLEE',
+    'msLEE',
+    'jsKIM',
+    'roy',
+  ];
+  let amounts = [
+    950, 52524, 1400, 6055, 10000, 4512, 512, 52000, 9000, 49000, 1400, 50000,
+  ];
+
+  // console.log(solution(k, m, names, amounts));
 }
